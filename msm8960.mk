@@ -64,10 +64,6 @@ PRODUCT_PACKAGES += \
 #    audio_policy.msm8960 \
 #    audio.primary.msm8960
 
-# Lights Support
-#PRODUCT_PACKAGES += \
-#	lights.msm8960
-
 # GalaxyS2Settings
 PRODUCT_PACKAGES += \
      GalaxyS2Settings \
