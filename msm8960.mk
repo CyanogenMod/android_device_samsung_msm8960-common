@@ -44,7 +44,8 @@ PRODUCT_COPY_FILES += \
 
 # Media config
 PRODUCT_COPY_FILES += \
-    device/samsung/msm8960-common/configs/media_profiles.xml:system/etc/media_profiles.xml
+    device/samsung/msm8960-common/configs/media_profiles.xml:system/etc/media_profiles.xml \
+	device/samsung/msm8960-common/configs/media_codecs.xml:system/etc/media_codecs.xml
 
 # QCOM Display
 PRODUCT_PACKAGES += \
