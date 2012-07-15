@@ -128,3 +128,6 @@ BOARD_USES_ALSA_AUDIO := true
 TARGET_USES_QCOM_LPA := true
 BOARD_HAVE_SAMSUNG_AUDIO := true
 
+# Workaround for missing symbols in camera
+BOARD_NEEDS_MEMORYHEAPPMEM := true
+
