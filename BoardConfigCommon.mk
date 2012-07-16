@@ -39,7 +39,6 @@ COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE
 # fix flickering when turning off the screen
 COMMON_GLOBAL_CFLAGS += -DSURFACEFLINGER_FORCE_SCREEN_RELEASE
 # add compatiblity with ics libs
-COMMON_GLOBAL_CFLAGS += -DQCOM_ICS_COMPAT
 
 # Krait optimizations
 TARGET_USE_KRAIT_BIONIC_OPTIMIZATION := true
