@@ -56,7 +56,8 @@ PRODUCT_PACKAGES += \
     liboverlay \
     libQcomUI \
     libtilerenderer \
-    hdmid
+    hdmid \
+    libI420colorconvert
 
 # Audio
 PRODUCT_PACKAGES += \
