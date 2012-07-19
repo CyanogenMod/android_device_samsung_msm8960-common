@@ -48,6 +48,6 @@
     </integer-array>
 
     <!-- Default interface to monitor data use -->
-    <string name="config_datause_iface">rmnet_sdio0</string>
+    <string name="config_datause_iface">rmnet0</string>
 
 </resources>
