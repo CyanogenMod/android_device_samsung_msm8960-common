@@ -69,10 +69,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Audio
 PRODUCT_PACKAGES += \
-    audio.a2dp.default
-#    alsa.msm8960 \
-#    audio_policy.msm8960 \
-#    audio.primary.msm8960
+    alsa.msm8960 \
+    audio.a2dp.default \
+    audio_policy.msm8960 \
+    audio.primary.msm8960 \
+    libalsa-intf \
+    libaudioutils
 
 # GalaxyS3Settings
 PRODUCT_PACKAGES += \
