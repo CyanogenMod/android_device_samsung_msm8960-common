@@ -65,9 +65,9 @@ PRODUCT_PACKAGES += \
 #    audio_policy.msm8960 \
 #    audio.primary.msm8960
 
-# GalaxyS2Settings
+# GalaxyS3Settings
 PRODUCT_PACKAGES += \
-     GalaxyS2Settings \
+     GalaxyS3Settings \
      SamsungServiceMode
 
 # GPS
