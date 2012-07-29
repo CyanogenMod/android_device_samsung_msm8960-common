@@ -39,7 +39,7 @@ public class mDNIeScenario extends ListPreference implements OnPreferenceChangeL
     }
 
     /**
-     * Restore mdnie "camera" setting from SharedPreferences. (Write to kernel.)
+     * Restore mdnie setting from SharedPreferences. (Write to kernel.)
      * @param context       The context to read the SharedPreferences from
      */
     public static void restore(Context context) {
@@ -48,7 +48,7 @@ public class mDNIeScenario extends ListPreference implements OnPreferenceChangeL
         }
 
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
-        Utils.writeValue(FILE, sharedPrefs.getString(DeviceSettings.KEY_MDNIE_SCENARIO, "4"));
+        Utils.writeValue(FILE, sharedPrefs.getString(DeviceSettings.KEY_MDNIE_SCENARIO, "0"));
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {

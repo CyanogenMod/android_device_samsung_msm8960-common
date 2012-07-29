@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-    <PreferenceCategory 
-                android:title="@string/gyro_subcat_title">
+    <PreferenceCategory
+            android:key="sensors"
+            android:title="@string/gyro_subcat_title">
+
     <!-- Use sensor calibration -->
     <CheckBoxPreference
                 android:key="use_gyro_calibration"
@@ -19,6 +21,7 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+                android:key="touchkey"
                 android:title="@string/touchkey_subcat_title">
     <!-- Touchkey backlight -->
     <CheckBoxPreference

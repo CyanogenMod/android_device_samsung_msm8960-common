@@ -17,15 +17,17 @@
 package com.cyanogenmod.settings.device;
 
 import android.os.Bundle;
+import android.preference.PreferenceCategory;
 import android.preference.PreferenceFragment;
-import com.cyanogenmod.settings.device.R;
 
 public class mDNIeFragmentActivity extends PreferenceFragment {
 
     private mDNIeScenario mmDNIeScenario;
     private mDNIeMode mmDNIeMode;
     private mDNIeOutdoor mmDNIeOutdoor;
+    private mDNIeNegative mmDNIeNegative;
     private TouchscreenSensitivity mTouchscreenSensitivity;
+    private CABC mCABC;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -33,17 +35,46 @@ public class mDNIeFragmentActivity extends PreferenceFragment {
 
         addPreferencesFromResource(R.xml.mdnie_preferences);
 
+        PreferenceCategory prefs = (PreferenceCategory) findPreference(DeviceSettings.CATEGORY_MDNIE);
+
         mmDNIeScenario = (mDNIeScenario) findPreference(DeviceSettings.KEY_MDNIE_SCENARIO);
-        mmDNIeScenario.setEnabled(mDNIeScenario.isSupported());
+        if (!mDNIeScenario.isSupported()) {
+            prefs.removePreference(mmDNIeScenario);
+        }
 
         mmDNIeMode = (mDNIeMode) findPreference(DeviceSettings.KEY_MDNIE_MODE);
-        mmDNIeMode.setEnabled(mDNIeMode.isSupported());
+        if (!mDNIeMode.isSupported()) {
+            prefs.removePreference(mmDNIeMode);
+        }
 
         mmDNIeOutdoor = (mDNIeOutdoor) findPreference(DeviceSettings.KEY_MDNIE_OUTDOOR);
-        mmDNIeOutdoor.setEnabled(mDNIeOutdoor.isSupported());
+        if (!mDNIeOutdoor.isSupported()) {
+            prefs.removePreference(mmDNIeOutdoor);
+        }
 
+        mmDNIeNegative = (mDNIeNegative) findPreference(DeviceSettings.KEY_MDNIE_NEGATIVE);
+        if (!mDNIeNegative.isSupported()) {
+            prefs.removePreference(mmDNIeNegative);
+        }
+
+        mCABC = (CABC) findPreference(DeviceSettings.KEY_CABC);
+        if (!CABC.isSupported()) {
+            prefs.removePreference(mCABC);
+        }
+
+        if (prefs.getPreferenceCount() == 0) {
+            getPreferenceScreen().removePreference(prefs);
+        }
+
+        prefs = (PreferenceCategory) findPreference(DeviceSettings.CATEGORY_TOUCHSCREEN);
         mTouchscreenSensitivity = (TouchscreenSensitivity) findPreference(DeviceSettings.KEY_TOUCHSCREEN_SENSITIVITY);
-        mTouchscreenSensitivity.setEnabled(mTouchscreenSensitivity.isSupported());
+        if (!TouchscreenSensitivity.isSupported()) {
+            prefs.removePreference(mTouchscreenSensitivity);
+        }
+
+        if (prefs.getPreferenceCount() == 0) {
+            getPreferenceScreen().removePreference(prefs);
+        }
     }
 
 }

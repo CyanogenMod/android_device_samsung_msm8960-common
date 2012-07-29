@@ -18,29 +18,27 @@ package com.cyanogenmod.settings.device;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.os.Build;
 import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceManager;
 import android.util.AttributeSet;
 
-public class mDNIeOutdoor extends CheckBoxPreference implements OnPreferenceChangeListener {
+public class mDNIeNegative extends CheckBoxPreference implements OnPreferenceChangeListener {
 
-    public mDNIeOutdoor(Context context, AttributeSet attrs) {
+    public mDNIeNegative(Context context, AttributeSet attrs) {
         super(context, attrs);
         this.setOnPreferenceChangeListener(this);
     }
 
-    private static final String FILE = "/sys/class/mdnie/mdnie/outdoor";
+    private static final String FILE = "/sys/class/mdnie/mdnie/negative";
 
     public static boolean isSupported() {
-        // D2 doesn't actually support outdoor mode
-        return Utils.fileExists(FILE) && !Build.DEVICE.startsWith("d2");
+        return Utils.fileExists(FILE);
     }
 
     /**
-     * Restore mdnie outdoor mode setting from SharedPreferences. (Write to kernel.)
+     * Restore mdnie negative mode setting from SharedPreferences. (Write to kernel.)
      * @param context       The context to read the SharedPreferences from
      */
     public static void restore(Context context) {
@@ -49,7 +47,7 @@ public class mDNIeOutdoor extends CheckBoxPreference implements OnPreferenceChan
         }
 
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
-        Utils.writeValue(FILE, sharedPrefs.getBoolean(DeviceSettings.KEY_MDNIE_OUTDOOR, false) ? "1" : "0");
+        Utils.writeValue(FILE, sharedPrefs.getBoolean(DeviceSettings.KEY_MDNIE_NEGATIVE, false) ? "1" : "0");
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
