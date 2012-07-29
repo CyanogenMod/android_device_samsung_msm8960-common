@@ -3,8 +3,16 @@
     android:title="@string/app_name">
 
     <PreferenceCategory
-                android:title="@string/screen_colors_title">
-    
+            android:key="mdnie"
+            android:title="@string/screen_colors_title">
+
+    <!-- CABC -->
+    <com.cyanogenmod.settings.device.CABC
+            android:key="cabc"
+            android:title="@string/cabc_title_head"
+            android:summary="@string/cabc_summary_head"
+            android:defaultValue="true" />
+
     <!-- mDNIe Scenario modes -->
     <com.cyanogenmod.settings.device.mDNIeScenario
 	        android:key="mdnie_scenario"
@@ -25,16 +33,22 @@
 
     <!-- mDNIe Outdoor mode -->
     <com.cyanogenmod.settings.device.mDNIeOutdoor
-	        android:key="mdnie_outdoor"
+	        android:key="mdnie_outdoor_mode"
 	        android:title="@string/mdnie_outdoor_title_head"
 	        android:summary="@string/mdnie_outdoor_summary_head"
-	        android:entries="@array/mdnie_outdoor_entries"
-  			android:entryValues="@array/mdnie_outdoor_entries_values"
-  			android:defaultValue="0" />
+  			android:defaultValue="false" />
+
+    <!-- mDNIe Negative mode -->
+    <com.cyanogenmod.settings.device.mDNIeNegative
+            android:key="mdnie_negative_mode"
+            android:title="@string/mdnie_negative_title_head"
+            android:summary="@string/mdnie_negative_summary_head"
+            android:defaultValue="false" />
 
     </PreferenceCategory>
     <PreferenceCategory
-                android:title="@string/touchscreen_subcat_title">
+            android:key="touchscreen"
+            android:title="@string/touchscreen_subcat_title">
     <com.cyanogenmod.settings.device.TouchscreenSensitivity
                 android:key="touchscreen_sensitivity"
                 android:title="@string/touchscreen_sensitivity_title_head"

@@ -16,23 +16,21 @@
 
 package com.cyanogenmod.settings.device;
 
+import java.io.File;
+
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
-import android.preference.ListPreference;
 import android.preference.Preference;
-import android.preference.PreferenceActivity;
+import android.preference.PreferenceCategory;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
 import android.util.Log;
 
-import com.cyanogenmod.settings.device.R;
-
 public class SensorsFragmentActivity extends PreferenceFragment {
 
-    private static final String PREF_ENABLED = "1";
     private static final String TAG = "GalaxyS3Parts_General";
 
     private static final String FILE_USE_GYRO_CALIB = "/sys/class/sec/gsensorcal/calibration";
@@ -40,14 +38,25 @@ public class SensorsFragmentActivity extends PreferenceFragment {
     private static final String FILE_TOUCHKEY_TOGGLE = "/sys/class/misc/melfas_touchkey/brightness";
     private static final String FILE_BLN_TOGGLE = "/sys/class/misc/backlightnotification/enabled";
 
+    private static final boolean sHasTouchkeyToggle = Utils.fileExists(FILE_TOUCHKEY_TOGGLE);
+    private static final boolean sHasTouchkeyBLN = Utils.fileExists(FILE_BLN_TOGGLE);
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.sensors_preferences);
 
-        PreferenceScreen prefSet = getPreferenceScreen();
-
+        PreferenceCategory prefs = (PreferenceCategory) findPreference(DeviceSettings.CATEGORY_TOUCHKEY);
+        if (!sHasTouchkeyToggle) {
+            prefs.removePreference(findPreference(DeviceSettings.KEY_TOUCHKEY_LIGHT));
+        }
+        if (!sHasTouchkeyBLN) {
+            prefs.removePreference(findPreference(DeviceSettings.KEY_TOUCHKEY_BLN));
+        }
+        if (prefs.getPreferenceCount() == 0) {
+            getPreferenceScreen().removePreference(prefs);
+        }
     }
 
     @Override
@@ -77,10 +86,6 @@ public class SensorsFragmentActivity extends PreferenceFragment {
         return true;
     }
 
-    public static boolean isSupported(String FILE) {
-        return Utils.fileExists(FILE);
-    }
-
     public static void restore(Context context) {
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
 
@@ -90,8 +95,13 @@ public class SensorsFragmentActivity extends PreferenceFragment {
         if (!sharedPrefs.getBoolean(DeviceSettings.KEY_USE_GYRO_CALIBRATION, true))
             Utils.writeValue(FILE_USE_GYRO_CALIB, "0");
 
-        Utils.writeValue(FILE_TOUCHKEY_LIGHT, sharedPrefs.getBoolean(DeviceSettings.KEY_TOUCHKEY_LIGHT, true) ? "0" : "1");
-        Utils.writeValue(FILE_TOUCHKEY_TOGGLE, sharedPrefs.getBoolean(DeviceSettings.KEY_TOUCHKEY_LIGHT, true) ? "1" : "2");
-        Utils.writeValue(FILE_BLN_TOGGLE, sharedPrefs.getBoolean(DeviceSettings.KEY_TOUCHKEY_BLN, true) ? "1" : "0");
+        if (sHasTouchkeyToggle) {
+            Utils.writeValue(FILE_TOUCHKEY_LIGHT, sharedPrefs.getBoolean(DeviceSettings.KEY_TOUCHKEY_LIGHT, true) ? "0" : "1");
+            Utils.writeValue(FILE_TOUCHKEY_TOGGLE, sharedPrefs.getBoolean(DeviceSettings.KEY_TOUCHKEY_LIGHT, true) ? "1" : "2");
+        }
+
+        if (sHasTouchkeyBLN) {
+            Utils.writeValue(FILE_BLN_TOGGLE, sharedPrefs.getBoolean(DeviceSettings.KEY_TOUCHKEY_BLN, true) ? "1" : "0");
+        }
     }
 }
