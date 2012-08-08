@@ -64,7 +64,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.sf.hw=1 \
     debug.egl.hw=1 \
     debug.composition.type=dyn \
-    debug.mdpcomp.maxlayer=0 \
+    debug.mdpcomp.maxlayer=3 \
     debug.mdpcomp.logs=0
 
 # Audio
