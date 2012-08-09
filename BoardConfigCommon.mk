@@ -101,7 +101,6 @@ BOARD_EGL_CFG := device/samsung/msm8960-common/configs/egl.cfg
 
 # Webkit
 TARGET_FORCE_CPU_UPLOAD := true
-DYNAMIC_SHARED_LIBV8SO := true
 
 # GPS
 #BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := msm8960
