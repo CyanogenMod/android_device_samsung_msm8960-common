@@ -23,7 +23,7 @@
 
     <!-- Flag indicating whether we should enable automatic brightness for
          the button and keyboard backlights. -->
- <!--   <bool name="config_autoBrightnessButtonKeyboard">false</bool> -->
+    <bool name="config_autoBrightnessButtonKeyboard">false</bool>
 
     <!-- Our amoled doesn't animate well. -->
     <bool name="config_animateScreenLights">false</bool> 
