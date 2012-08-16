@@ -65,7 +65,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.egl.hw=1 \
     debug.composition.type=dyn \
     debug.mdpcomp.maxlayer=3 \
-    debug.mdpcomp.logs=0
+    debug.mdpcomp.logs=0 \
+    debug.enabletr=true
 
 # Audio
 PRODUCT_PACKAGES += \
