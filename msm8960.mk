@@ -55,9 +55,8 @@ PRODUCT_PACKAGES += \
     libgenlock \
     libmemalloc \
     liboverlay \
-    libQcomUI \
+    libqdutils \
     libtilerenderer \
-    hdmid \
     libI420colorconvert
 
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -111,7 +110,9 @@ PRODUCT_PACKAGES += \
     libOmxVdec \
     libOmxVenc \
     libOmxAacEnc \
-    libOmxAmrEnc
+    libOmxAmrEnc \
+    libOmxEvrcEnc \
+    libOmxQcelp13Enc
 
 # Misc
 PRODUCT_PACKAGES += \
