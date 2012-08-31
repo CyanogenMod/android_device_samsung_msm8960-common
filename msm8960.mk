@@ -128,15 +128,14 @@ PRODUCT_PACKAGES += \
 # Filesystem management tools
 PRODUCT_PACKAGES += \
     make_ext4fs \
+    e2fsck \
     setup_fs
 
 # for bugmailer
-ifneq ($(TARGET_BUILD_VARIANT),user)
-    PRODUCT_PACKAGES += send_bug
-    PRODUCT_COPY_FILES += \
-        system/extras/bugmailer/bugmailer.sh:system/bin/bugmailer.sh \
-        system/extras/bugmailer/send_bug:system/bin/send_bug
-endif
+PRODUCT_PACKAGES += send_bug
+PRODUCT_COPY_FILES += \
+    system/extras/bugmailer/bugmailer.sh:system/bin/bugmailer.sh \
+    system/extras/bugmailer/send_bug:system/bin/send_bug
 
 # keylayouts
 PRODUCT_COPY_FILES += \
@@ -173,17 +172,22 @@ PRODUCT_COPY_FILES += \
     device/samsung/msm8960-common/idc/qwerty.idc:system/usr/idc/qwerty.idc \
     device/samsung/msm8960-common/idc/qwerty2.idc:system/usr/idc/qwerty2.idc
 
-# Misc init scripts
-PRODUCT_COPY_FILES += \
-    device/samsung/msm8960-common/etc/init.qcom.modem_links.sh:system/etc/init.qcom.modem_links.sh \
-    device/samsung/msm8960-common/etc/init.qcom.mdm_links.sh:system/etc/init.qcom.mdm_links.sh \
-    device/samsung/msm8960-common/etc/init.qcom.post_boot.sh:system/etc/init.qcom.post_boot.sh
+# Init scripts
+PRODUCT_PACKAGES += \
+    init.qcom.post_boot.sh \
+    init.qcom.efs.sync.sh \
+    init.qcom.sh \
+    init.qcom.class_core.sh \
+    init.qcom.class_main.sh \
+    init.qcom.post_fs.sh \
+    init.qcom.mdm_links.sh \
+    init.qcom.modem_links.sh \
+    init.qcom.usb.sh \
+    lpm.rc \
+    init.qcom.lpm_boot.sh
 
 # Charger
 PRODUCT_PACKAGES += charger charger_res_images
-PRODUCT_COPY_FILES += \
-	device/samsung/msm8960-common/lpm/lpm.rc:root/lpm.rc \
-	device/samsung/msm8960-common/lpm/init.qcom.lpm_boot.sh:root/init.qcom.lpm_boot.sh
 
 # Needed to reset bootmode when leaving recovery
 PRODUCT_COPY_FILES += \
