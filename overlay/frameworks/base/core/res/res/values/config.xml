@@ -26,7 +26,7 @@
     <bool name="config_autoBrightnessButtonKeyboard">false</bool>
 
     <!-- Our amoled doesn't animate well. -->
-    <!--<bool name="config_animateScreenLights">false</bool>--> 
+    <bool name="config_animateScreenLights">false</bool> 
 
     <!-- Component name of the service providing network location support. -->
     <string name="config_networkLocationProviderPackageName">com.google.android.location.NetworkLocationProvider</string>
