@@ -179,7 +179,8 @@ PRODUCT_PACKAGES += \
     init.qcom.sh \
     init.qcom.class_core.sh \
     init.qcom.class_main.sh \
-    init.qcom.post_fs.sh \
+    init.qcom.syspart_fixup.sh \
+    init.qcom.early_boot.sh \
     init.qcom.mdm_links.sh \
     init.qcom.modem_links.sh \
     init.qcom.usb.sh \
