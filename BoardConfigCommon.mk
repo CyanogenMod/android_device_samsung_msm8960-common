@@ -127,3 +127,6 @@ BOARD_HAVE_SAMSUNG_AUDIO := true
 # Workaround for missing symbols in camera
 BOARD_NEEDS_MEMORYHEAPPMEM := true
 
+# WebGL
+ENABLE_WEBGL := true
+
