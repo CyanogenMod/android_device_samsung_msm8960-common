@@ -25,16 +25,13 @@ TARGET_BOARD_PLATFORM_GPU := qcom-adreno200
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_ARCH_VARIANT := armv7-a-neon
+TARGET_ARCH_VARIANT_CPU := cortex-a9
 TARGET_CPU_SMP := true
-ARCH_ARM_HAVE_TLS_REGISTER := true
-ARCH_ARM_HAVE_NEON := true
 
 # Enable WEBGL in WebKit
 ENABLE_WEBGL := true
 
 # Flags
-TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
-TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
 COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE  
 
 # Krait optimizations
@@ -80,17 +77,10 @@ BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 50000
 
 # Graphics
 USE_OPENGL_RENDERER := true
-TARGET_HAVE_BYPASS := true
-TARGET_USES_SF_BYPASS := true
-TARGET_AVOID_DRAW_TEXTURE_EXTENSION := true
 TARGET_USES_C2D_COMPOSITION := true
-TARGET_USES_OVERLAY := true
-TARGET_QCOM_HDMI_OUT := true
-TARGET_NO_BYPASS_CROPPING := true
 
 TARGET_USES_ION := true
 BOARD_EGL_CFG := device/samsung/msm8960-common/configs/egl.cfg
-#COMMON_GLOBAL_CFLAGS += -DQCOM_ROTATOR_KERNEL_FORMATS
 
 # FM Radio
 #BOARD_HAVE_FM_RADIO := true
@@ -119,9 +109,7 @@ BOARD_CHARGING_MODE_BOOTING_LPM := /sys/class/power_supply/battery/batt_lp_charg
 BOARD_BATTERY_DEVICE_NAME := "battery"
 
 # Audio
-#COMMON_GLOBAL_CFLAGS += -DWITH_QCOM_LPA -DQCOM_TUNNEL_LPA_ENABLED
 BOARD_USES_ALSA_AUDIO := true
-#TARGET_USES_QCOM_LPA := true
 BOARD_HAVE_SAMSUNG_AUDIO := true
 
 # Workaround for missing symbols in camera
