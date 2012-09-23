@@ -172,6 +172,7 @@ case "$target" in
                  echo 0 > /sys/module/rpm_resources/enable_low_power/vdd_mem
                  ;;
          esac
+         echo "cfq" > /sys/block/mmcblk0/queue/scheduler
          ;;
 esac
 
