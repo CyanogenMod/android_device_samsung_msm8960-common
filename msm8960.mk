@@ -12,6 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# Inherit from QCOM common
+-include device/samsung/qcom-common/BoardConfigCommon.mk
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -38,33 +40,9 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.telephony.cdma.xml:system/etc/permissions/android.hardware.telephony.cdma.xml \
     packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/permissions/android.software.live_wallpaper.xml
 
-# EGL config
-PRODUCT_COPY_FILES += \
-    device/samsung/msm8960-common/configs/egl.cfg:system/lib/egl/egl.cfg
-
 # Media config
 PRODUCT_COPY_FILES += \
-    device/samsung/msm8960-common/configs/media_profiles.xml:system/etc/media_profiles.xml \
-	device/samsung/msm8960-common/configs/media_codecs.xml:system/etc/media_codecs.xml
-
-# QCOM Display
-PRODUCT_PACKAGES += \
-    copybit.msm8960 \
-    gralloc.msm8960 \
-    hwcomposer.msm8960 \
-    libgenlock \
-    libmemalloc \
-    liboverlay \
-    libqdutils \
-    libtilerenderer \
-    libI420colorconvert
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    debug.sf.hw=1 \
-    debug.egl.hw=1 \
-    debug.composition.type=dyn \
-    debug.mdpcomp.maxlayer=3 \
-    debug.mdpcomp.logs=0
+    device/samsung/msm8960-common/configs/media_profiles.xml:system/etc/media_profiles.xml
 
 # Audio
 PRODUCT_PACKAGES += \
@@ -101,19 +79,6 @@ endif
 PRODUCT_COPY_FILES += \
     $(NFCEE_ACCESS_PATH):system/etc/nfcee_access.xml
 
-# Omx
-PRODUCT_PACKAGES += \
-    libdivxdrmdecrypt \
-    libmm-omxcore \
-    libOmxCore \
-    libstagefrighthw \
-    libOmxVdec \
-    libOmxVenc \
-    libOmxAacEnc \
-    libOmxAmrEnc \
-    libOmxEvrcEnc \
-    libOmxQcelp13Enc
-
 # Misc
 PRODUCT_PACKAGES += \
     com.android.future.usb.accessory
@@ -124,18 +89,6 @@ PRODUCT_PACKAGES += \
     LiveWallpapersPicker \
     VisualizationWallpapers \
     librs_jni
-
-# Filesystem management tools
-PRODUCT_PACKAGES += \
-    make_ext4fs \
-    e2fsck \
-    setup_fs
-
-# for bugmailer
-PRODUCT_PACKAGES += send_bug
-PRODUCT_COPY_FILES += \
-    system/extras/bugmailer/bugmailer.sh:system/bin/bugmailer.sh \
-    system/extras/bugmailer/send_bug:system/bin/send_bug
 
 # keylayouts
 PRODUCT_COPY_FILES += \
@@ -172,24 +125,6 @@ PRODUCT_COPY_FILES += \
     device/samsung/msm8960-common/idc/qwerty.idc:system/usr/idc/qwerty.idc \
     device/samsung/msm8960-common/idc/qwerty2.idc:system/usr/idc/qwerty2.idc
 
-# Init scripts
-PRODUCT_PACKAGES += \
-    init.qcom.post_boot.sh \
-    init.qcom.efs.sync.sh \
-    init.qcom.sh \
-    init.qcom.class_core.sh \
-    init.qcom.class_main.sh \
-    init.qcom.syspart_fixup.sh \
-    init.qcom.early_boot.sh \
-    init.qcom.mdm_links.sh \
-    init.qcom.modem_links.sh \
-    init.qcom.usb.sh \
-    lpm.rc \
-    init.qcom.lpm_boot.sh
-
-# Charger
-PRODUCT_PACKAGES += charger charger_res_images
-
 # Needed to reset bootmode when leaving recovery
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/recovery/postrecoveryboot.sh:recovery/root/sbin/postrecoveryboot.sh \
@@ -198,8 +133,9 @@ PRODUCT_COPY_FILES += \
 # We have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
 
-PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
-
 # Common overlay
 DEVICE_PACKAGE_OVERLAYS += device/samsung/msm8960-common/overlay
+
+# common msm8960
+$(call inherit-product, device/samsung/qcom-common/qcom-common.mk)
 
