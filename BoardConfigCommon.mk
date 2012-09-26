@@ -12,9 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# inherit from qcom-common
--include device/samsung/qcom-common/BoardConfigCommon.mk
-
 TARGET_SPECIFIC_HEADER_PATH := device/samsung/msm8960-common/include
 
 BOARD_VENDOR := samsung
@@ -22,6 +19,9 @@ BOARD_VENDOR := samsung
 # Platform
 TARGET_BOARD_PLATFORM := msm8960
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno200
+
+# inherit from qcom-common
+-include device/samsung/qcom-common/BoardConfigCommon.mk
 
 # Architecture
 TARGET_CPU_SMP := true
