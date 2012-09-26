@@ -34,7 +34,6 @@ public class SensorsFragmentActivity extends PreferenceFragment {
     private static final String TAG = "GalaxyS3Parts_General";
 
     private static final String FILE_USE_GYRO_CALIB = "/sys/class/sec/gsensorcal/calibration";
-    private static final String FILE_TOUCHKEY_LIGHT = "/data/.disable_touchlight";
     private static final String FILE_TOUCHKEY_TOGGLE = "/sys/class/leds/button-backlight/max_brightness";
     private static final String FILE_BLN_TOGGLE = "/sys/class/misc/backlightnotification/enabled";
 
@@ -77,7 +76,6 @@ public class SensorsFragmentActivity extends PreferenceFragment {
             Utils.writeValue(FILE_USE_GYRO_CALIB, "1");
             Utils.showDialog((Context)getActivity(), "Calibration done", "The gyroscope has been successfully calibrated!");
         } else if (key.compareTo(DeviceSettings.KEY_TOUCHKEY_LIGHT) == 0) {
-            Utils.writeValue(FILE_TOUCHKEY_LIGHT, ((CheckBoxPreference)preference).isChecked() ? "0" : "1");
             Utils.writeValue(FILE_TOUCHKEY_TOGGLE, ((CheckBoxPreference)preference).isChecked() ? "255" : "0");
         } else if (key.compareTo(DeviceSettings.KEY_TOUCHKEY_BLN) == 0) {
             Utils.writeValue(FILE_BLN_TOGGLE, ((CheckBoxPreference)preference).isChecked() ? "1" : "0");
@@ -96,8 +94,7 @@ public class SensorsFragmentActivity extends PreferenceFragment {
             Utils.writeValue(FILE_USE_GYRO_CALIB, "0");
 
         if (sHasTouchkeyToggle) {
-            Utils.writeValue(FILE_TOUCHKEY_LIGHT, sharedPrefs.getBoolean(DeviceSettings.KEY_TOUCHKEY_LIGHT, true) ? "0" : "1");
-            Utils.writeValue(FILE_TOUCHKEY_TOGGLE, sharedPrefs.getBoolean(DeviceSettings.KEY_TOUCHKEY_LIGHT, true) ? "1" : "2");
+            Utils.writeValue(FILE_TOUCHKEY_TOGGLE, sharedPrefs.getBoolean(DeviceSettings.KEY_TOUCHKEY_LIGHT, true) ? "255" : "0");
         }
 
         if (sHasTouchkeyBLN) {
