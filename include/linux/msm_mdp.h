@@ -71,6 +71,8 @@
 #define MSMFB_OVERLAY_VSYNC_CTRL _IOW(MSMFB_IOCTL_MAGIC, 160, unsigned int)
 #define MSMFB_VSYNC_CTRL  _IOW(MSMFB_IOCTL_MAGIC, 161, unsigned int)
 #define MSMFB_METADATA_SET  _IOW(MSMFB_IOCTL_MAGIC, 162, struct msmfb_metadata)
+#define MSMFB_OVERLAY_COMMIT      _IOW(MSMFB_IOCTL_MAGIC, 163, unsigned int)
+
 #define FB_TYPE_3D_PANEL 0x10101010
 #define MDP_IMGTYPE2_START 0x10000
 #define MSMFB_DRIVER_VERSION	0xF9E8D701
@@ -91,6 +93,8 @@ enum {
 	MDP_YCRYCB_H2V1,  /* YCrYCb interleave */
 	MDP_Y_CRCB_H2V1,  /* Y and CrCb, pseduo planer w/ Cr is in MSB */
 	MDP_Y_CBCR_H2V1,   /* Y and CrCb, pseduo planer w/ Cr is in MSB */
+	MDP_Y_CRCB_H1V2,
+	MDP_Y_CBCR_H1V2,
 	MDP_RGBA_8888,    /* ARGB 888 */
 	MDP_BGRA_8888,	  /* ABGR 888 */
 	MDP_RGBX_8888,	  /* RGBX 888 */
