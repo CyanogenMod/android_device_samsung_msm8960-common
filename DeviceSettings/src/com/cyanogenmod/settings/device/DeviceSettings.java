@@ -73,6 +73,8 @@ public class DeviceSettings extends FragmentActivity {
                 mDNIeFragmentActivity.class, null);
         mTabsAdapter.addTab(bar.newTab().setText(R.string.category_sensors_title),
                 SensorsFragmentActivity.class, null);
+        mTabsAdapter.addTab(bar.newTab().setText(R.string.category_sound_title),
+                SoundFragmentActivity.class, null);
 
         if (savedInstanceState != null) {
             bar.setSelectedNavigationItem(savedInstanceState.getInt("tab", 0));
