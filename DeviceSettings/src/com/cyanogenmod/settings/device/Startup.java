@@ -30,6 +30,7 @@ public class Startup extends BroadcastReceiver {
         mDNIeNegative.restore(context);
         CABC.restore(context);
         SensorsFragmentActivity.restore(context);
+        SoundFragmentActivity.restore(context);
     }
 
 }
