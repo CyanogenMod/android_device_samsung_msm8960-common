@@ -51,6 +51,7 @@ public class DeviceSettings extends FragmentActivity {
     public static final String CATEGORY_SENSORS = "sensors";
     public static final String CATEGORY_TOUCHSCREEN = "touchscreen";
     public static final String CATEGORY_TOUCHKEY = "touchkey";
+    public static final String KEY_USE_DOCK_AUDIO = "dock_audio";
 
     ViewPager mViewPager;
     TabsAdapter mTabsAdapter;
@@ -75,7 +76,6 @@ public class DeviceSettings extends FragmentActivity {
                 SensorsFragmentActivity.class, null);
         mTabsAdapter.addTab(bar.newTab().setText(R.string.category_sound_title),
                 SoundFragmentActivity.class, null);
-
         if (savedInstanceState != null) {
             bar.setSelectedNavigationItem(savedInstanceState.getInt("tab", 0));
         }

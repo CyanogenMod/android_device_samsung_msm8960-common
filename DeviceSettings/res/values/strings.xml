@@ -38,4 +38,8 @@
     <string name="sound_volume_title">Volume</string>
     <string name="voc_ep_xgain_title_head">Extra gain in voice calls</string>
     <string name="voc_ep_xgain_summary_head">Boost volume of earpiece during voice calls</string>
+    <string name="category_dock_title">Dock</string>
+    <string name="dockaudio_subcat_title">DOCK AUDIO</string>
+    <string name="use_dock_audio_title_head">Use Dock USB Audio</string>
+    <string name="use_dock_audio_summary_head">Use the passive audio out on the dock</string>
 </resources>

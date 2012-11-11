@@ -11,4 +11,14 @@
                 android:summary="@string/voc_ep_xgain_summary_head"
                 android:defaultValue="false" />
     </PreferenceCategory>
+
+    <PreferenceCategory
+            android:title="@string/dockaudio_subcat_title">
+
+        <CheckBoxPreference
+                android:key="dock_audio"
+                android:title="@string/use_dock_audio_title_head"
+                android:summary="@string/use_dock_audio_summary_head"
+        />
+    </PreferenceCategory>
 </PreferenceScreen>
