@@ -88,3 +88,6 @@ BOARD_HAVE_SAMSUNG_AUDIO := true
 # Workaround for missing symbols in camera
 BOARD_NEEDS_MEMORYHEAPPMEM := true
 
+# We still have the old ION API
+BOARD_HAVE_OLD_ION_API := true
+
