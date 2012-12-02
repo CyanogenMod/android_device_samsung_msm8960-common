@@ -79,7 +79,7 @@ COMMON_GLOBAL_CFLAGS += -DSAMSUNG_CAMERA_HARDWARE
 BOARD_CAMERA_USE_MM_HEAP := true
 
 # Workaround to avoid issues with legacy liblights on QCOM platforms
-TARGET_PROVIDES_LIBLIGHTS := true
+TARGET_PROVIDES_LIBLIGHT := true
 
 # Audio
 BOARD_USES_ALSA_AUDIO := true
