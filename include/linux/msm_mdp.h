@@ -76,6 +76,7 @@
 #define MSMFB_DISPLAY_COMMIT      _IOW(MSMFB_IOCTL_MAGIC, 164, \
 						struct mdp_display_commit)
 
+#define MSMFB_METADATA_SET  _IOW(MSMFB_IOCTL_MAGIC, 163, struct msmfb_metadata)
 #define FB_TYPE_3D_PANEL 0x10101010
 #define MDP_IMGTYPE2_START 0x10000
 #define MSMFB_DRIVER_VERSION	0xF9E8D701
@@ -273,8 +274,10 @@ struct msmfb_writeback_data {
 	struct msmfb_img img;
 };
 
+#define MDP_PP_OPS_ENABLE 0x1
 #define MDP_PP_OPS_READ 0x2
 #define MDP_PP_OPS_WRITE 0x4
+#define MDP_PP_OPS_DISABLE 0x8
 
 struct mdp_qseed_cfg {
 	uint32_t table_num;
@@ -356,11 +359,14 @@ struct mdp_histogram {
 
 /*
 
-	mdp_block_type defines the identifiers for each of pipes in MDP 4.3
+	mdp_block_type defines the identifiers for pipes in MDP 4.3 and up
 
 	MDP_BLOCK_RESERVED is provided for backward compatibility and is
 	deprecated. It corresponds to DMA_P. So MDP_BLOCK_DMA_P should be used
 	instead.
+
+	MDP_LOGICAL_BLOCK_DISP_0 identifies the display pipe which fb0 uses,
+	same for others.
 
 */
 
@@ -376,13 +382,16 @@ enum {
 	MDP_BLOCK_DMA_S,
 	MDP_BLOCK_DMA_E,
 	MDP_BLOCK_OVERLAY_2,
+	MDP_LOGICAL_BLOCK_DISP_0 = 0x1000,
+	MDP_LOGICAL_BLOCK_DISP_1,
+	MDP_LOGICAL_BLOCK_DISP_2,
 	MDP_BLOCK_MAX,
 };
 
 /*
-mdp_histogram_start_req is used to provide the parameters for
-histogram start request
-*/
+ * mdp_histogram_start_req is used to provide the parameters for
+ *histogram start request
+ */
 
 struct mdp_histogram_start_req {
 	uint32_t block;
@@ -393,10 +402,8 @@ struct mdp_histogram_start_req {
 
 
 /*
-
-   mdp_histogram_data is used to return the histogram data, once
-   the histogram is done/stopped/cance
-
+ * mdp_histogram_data is used to return the histogram data, once
+ * the histogram is done/stopped/cance
  */
 
 
@@ -492,6 +499,11 @@ struct msmfb_mdp_pp {
 	} data;
 };
 
+enum {
+	metadata_op_none,
+	metadata_op_base_blend,
+	metadata_op_max
+};
 
 #define MDP_MAX_FENCE_FD	10
 #define MDP_BUF_SYNC_FLAG_WAIT	1
@@ -517,6 +529,18 @@ struct mdp_display_commit {
 	uint32_t wait_for_finish;
 	struct fb_var_screeninfo var;
 	struct mdp_buf_fence buf_fence;
+};
+
+struct mdp_blend_cfg {
+	uint32_t is_premultiplied;
+};
+
+struct msmfb_metadata {
+	uint32_t op;
+	uint32_t flags;
+	union {
+		struct mdp_blend_cfg blend_cfg;
+	} data;
 };
 
 struct mdp_page_protection {
