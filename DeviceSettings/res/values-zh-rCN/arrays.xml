@@ -1,0 +1,34 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <string-array name="mdnie_scenario_entries">
+        <item>界面</item>
+        <item>影片</item>
+        <item>照相</item>
+        <item>导航</item>
+        <item>图库</item>
+        <item>VT</item>
+        <item>忽略</item>
+    </string-array>
+
+    <string-array name="mdnie_mode_entries">
+        <item>标准 (默认)</item>
+        <item>动态</item>
+        <item>自然</item>
+        <item>电影</item>
+    </string-array>
+
+    <string-array name="panel_gamma_entries">
+        <item>2.2 (默认)</item>
+        <item>1.9</item>
+    </string-array>
+
+    <string-array name="touchscreen_sensitivity_entries">
+        <item>10</item>
+        <item>20</item>
+        <item>30</item>
+        <item>50 (默认)</item>
+        <item>70</item>
+        <item>100</item>
+    </string-array>
+
+</resources>
