@@ -83,6 +83,7 @@ BOARD_USES_ALSA_AUDIO := true
 BOARD_HAVE_SAMSUNG_AUDIO := true
 BOARD_USES_FLUENCE_INCALL := true
 BOARD_USES_SEPERATED_AUDIO_INPUT := true
+TARGET_USES_QCOM_COMPRESSED_AUDIO := true
 
 # Kernel time optimization
 # temp remove - causing issues with short/long presses
