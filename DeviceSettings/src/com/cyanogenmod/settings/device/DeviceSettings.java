@@ -45,6 +45,7 @@ public class DeviceSettings extends FragmentActivity {
     public static final String KEY_TOUCHSCREEN_SENSITIVITY = "touchscreen_sensitivity";
     public static final String KEY_TOUCHKEY_LIGHT = "touchkey_light";
     public static final String KEY_TOUCHKEY_BLN = "touchkey_bln";
+    public static final String KEY_KEYBOARD_LIGHT = "keyboard_light";
     public static final String KEY_CABC = "cabc";
 
     public static final String CATEGORY_MDNIE = "mdnie";

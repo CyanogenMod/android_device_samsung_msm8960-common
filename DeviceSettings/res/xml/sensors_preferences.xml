@@ -37,6 +37,12 @@
                 android:summary="@string/touchkey_bln_summary_head"
                 android:defaultValue="true"
                 />
+    <CheckBoxPreference
+                android:key="keyboard_light"
+                android:title="@string/keyboard_light_title_head"
+                android:summary="@string/keyboard_light_summary_head"
+                android:defaultValue="true"
+                />
     </PreferenceCategory>
 </PreferenceScreen>
 
