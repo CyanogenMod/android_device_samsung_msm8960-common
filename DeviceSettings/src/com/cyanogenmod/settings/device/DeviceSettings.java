@@ -46,6 +46,7 @@ public class DeviceSettings extends FragmentActivity {
     public static final String KEY_TOUCHKEY_LIGHT = "touchkey_light";
     public static final String KEY_TOUCHKEY_BLN = "touchkey_bln";
     public static final String KEY_KEYBOARD_LIGHT = "keyboard_light";
+    public static final String KEY_VIBRATOR_INTENSITY = "vibrator_intensity";
     public static final String KEY_CABC = "cabc";
 
     public static final String CATEGORY_MDNIE = "mdnie";
@@ -75,6 +76,8 @@ public class DeviceSettings extends FragmentActivity {
                 mDNIeFragmentActivity.class, null);
         mTabsAdapter.addTab(bar.newTab().setText(R.string.category_sensors_title),
                 SensorsFragmentActivity.class, null);
+        mTabsAdapter.addTab(bar.newTab().setText(R.string.category_haptic_title),
+                HapticFragmentActivity.class, null);
         mTabsAdapter.addTab(bar.newTab().setText(R.string.category_sound_title),
                 SoundFragmentActivity.class, null);
         if (savedInstanceState != null) {

@@ -31,6 +31,7 @@ public class Startup extends BroadcastReceiver {
         CABC.restore(context);
         SensorsFragmentActivity.restore(context);
         SoundFragmentActivity.restore(context);
+        VibratorIntensity.restore(context);
     }
 
 }
