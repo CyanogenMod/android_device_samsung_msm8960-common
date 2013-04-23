@@ -56,7 +56,7 @@ public class VibratorIntensity extends ListPreference implements OnPreferenceCha
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         Utils.writeValue(FILE, (String) newValue);
-	if (this.vibrator != null) {
+        if (this.vibrator != null) {
             this.vibrator.vibrate(300);
         }
         return true;
