@@ -63,13 +63,6 @@ PRODUCT_PACKAGES += \
      GalaxyS3Settings \
      SamsungServiceMode
 
-# GPS
-PRODUCT_PACKAGES += \
-	gps.msm8960
-
-PRODUCT_COPY_FILES += \
-    device/samsung/msm8960-common/gps/gps.conf:system/etc/gps.conf
-
 # NFC Support
 PRODUCT_PACKAGES += \
     libnfc \

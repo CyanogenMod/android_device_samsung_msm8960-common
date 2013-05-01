@@ -12,8 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-TARGET_SPECIFIC_HEADER_PATH := device/samsung/msm8960-common/include
-
 BOARD_VENDOR := samsung
 
 # Platform
