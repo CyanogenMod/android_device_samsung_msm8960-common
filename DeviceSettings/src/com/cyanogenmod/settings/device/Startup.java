@@ -32,6 +32,7 @@ public class Startup extends BroadcastReceiver {
         SensorsFragmentActivity.restore(context);
         SoundFragmentActivity.restore(context);
         VibratorIntensity.restore(context);
+        PanelColorTemperature.restore(context);
     }
 
 }
