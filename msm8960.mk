@@ -37,10 +37,6 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.telephony.cdma.xml:system/etc/permissions/android.hardware.telephony.cdma.xml \
     packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/permissions/android.software.live_wallpaper.xml
 
-# Media config
-PRODUCT_COPY_FILES += \
-    device/samsung/msm8960-common/configs/media_profiles.xml:system/etc/media_profiles.xml
-
 # Audio
 PRODUCT_PACKAGES += \
     alsa.msm8960 \
