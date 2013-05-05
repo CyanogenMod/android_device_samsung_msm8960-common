@@ -46,7 +46,7 @@
             android:defaultValue="false" />
     <!-- Panel color temperature mode -->
     <com.cyanogenmod.settings.device.PanelColorTemperature
-            android:key="panel_color_value"
+            android:key="panel_color_temperature"
             android:title="@string/panel_color_temp_title_head"
             android:summary="@string/panel_color_temp_summary_head"
             android:entries="@array/panel_color_temp_entries"

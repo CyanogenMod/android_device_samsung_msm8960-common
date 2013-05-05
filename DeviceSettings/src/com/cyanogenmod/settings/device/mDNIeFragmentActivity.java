@@ -28,6 +28,7 @@ public class mDNIeFragmentActivity extends PreferenceFragment {
     private mDNIeNegative mmDNIeNegative;
     private TouchscreenSensitivity mTouchscreenSensitivity;
     private CABC mCABC;
+    private PanelColorTemperature mPanelColor;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -60,6 +61,11 @@ public class mDNIeFragmentActivity extends PreferenceFragment {
         mCABC = (CABC) findPreference(DeviceSettings.KEY_CABC);
         if (!CABC.isSupported()) {
             prefs.removePreference(mCABC);
+        }
+
+        mPanelColor = (PanelColorTemperature) findPreference(DeviceSettings.KEY_PANEL_COLOR_TEMPERATURE);
+        if (!PanelColorTemperature.isSupported()) {
+            prefs.removePreference(mPanelColor);
         }
 
         if (prefs.getPreferenceCount() == 0) {
