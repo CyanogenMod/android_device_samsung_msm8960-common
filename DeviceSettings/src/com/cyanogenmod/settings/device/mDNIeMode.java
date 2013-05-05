@@ -27,6 +27,8 @@ import android.preference.PreferenceManager;
 
 public class mDNIeMode extends ListPreference implements OnPreferenceChangeListener {
 
+    private static final String MDNIE_MODE_AUTO = "4";
+
     public mDNIeMode(Context context, AttributeSet attrs) {
         super(context, attrs);
         this.setOnPreferenceChangeListener(this);
@@ -48,7 +50,7 @@ public class mDNIeMode extends ListPreference implements OnPreferenceChangeListe
         }
 
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
-        Utils.writeValue(FILE, sharedPrefs.getString(DeviceSettings.KEY_MDNIE_MODE, "1"));
+        Utils.writeValue(FILE, sharedPrefs.getString(DeviceSettings.KEY_MDNIE_MODE, MDNIE_MODE_AUTO));
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {

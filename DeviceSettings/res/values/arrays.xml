@@ -21,13 +21,15 @@
     </string-array>
 
     <string-array name="mdnie_mode_entries">
-        <item>Standard (Default)</item>
+        <item>Auto</item>
+        <item>Standard</item>
         <item>Dynamic</item>
         <item>Natural</item>
         <item>Movie</item>
     </string-array>
 
     <string-array name="mdnie_mode_entries_values" translatable="false">
+        <item>4</item>
         <item>1</item>
         <item>0</item>
         <item>2</item>
