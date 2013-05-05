@@ -32,7 +32,7 @@ public class PanelColorTemperature extends ListPreference implements OnPreferenc
         this.setOnPreferenceChangeListener(this);
     }
 
-    private static final String FILE = "/sys/devices/virtual/sec/tsp/panel_colors";
+    private static final String FILE = "/sys/class/lcd/panel/panel_colors";
 
     public static boolean isSupported() {
         return Utils.fileExists(FILE);
