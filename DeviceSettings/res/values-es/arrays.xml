@@ -33,4 +33,11 @@
         <item>75%</item>
         <item>100%</item>
     </string-array>
+    <string-array name="panel_color_temp_entries" >
+        <item>Muy fría</item>
+        <item>Fría</item>
+        <item>Normal</item>
+        <item>Cálida</item>
+        <item>Muy cálida</item>
+    </string-array>
 </resources>

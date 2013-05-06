@@ -13,6 +13,8 @@
     <string name="mdnie_outdoor_summary_head">Activar/Desactivar el modo exterior</string>
     <string name="panel_gamma_title_head">Gamma</string>
     <string name="panel_gamma_summary_head">Establecer el valor gamma de la pantalla</string>
+    <string name="panel_color_temp_title_head">Temperatura de color</string>
+    <string name="panel_color_temp_summary_head">Apagar y encender la pantalla para aplicar los cambios</string>
     <string name="touchscreen_subcat_title">Pantalla táctil</string>
     <string name="touchscreen_sensitivity_title_head">Sensibilidad táctil</string>
     <string name="touchscreen_sensitivity_summary_head">Establecer la sensibilidad táctil de la pantalla</string>
