@@ -8,5 +8,4 @@
 # 3: recovery_end
 # 4: download_end
 
-sleep 3
-echo 3 > /dev/block/platform/msm_sdcc.1/by-name/param
+echo -n -e '\x03\x00\x00\x00' > /dev/block/platform/msm_sdcc.1/by-name/param
