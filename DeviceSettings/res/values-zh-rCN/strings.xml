@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<!-- Copyright (C) 2013 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+ -->
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">Galaxy S III 设置</string>
 
     <string name="screen_colors_title">颜色</string>
@@ -14,6 +29,8 @@
     <string name="mdnie_outdoor_summary_head">为户外使用进行显示调整</string>
     <string name="panel_gamma_title_head">屏幕伽玛</string>
     <string name="panel_gamma_summary_head">设定屏幕伽玛值</string>
+    <string name="panel_color_temp_title_head">屏幕色温</string>
+    <string name="panel_color_temp_summary_head">屏幕关闭再开启后将应用</string>
 
     <string name="touchscreen_subcat_title">触摸屏</string>
     <string name="touchscreen_sensitivity_title_head">触摸灵敏度</string>
@@ -22,17 +39,24 @@
     <string name="category_sensors_title">传感器</string>
     <string name="gyro_subcat_title">陀螺仪</string>
     <string name="use_gyro_calibration_title_head">使用校准数据</string>
-    <string name="use_gyro_calibration_summary_head">使用陀螺仪的校准数据. 请在检查此之后重新校准!</string>
+    <string name="use_gyro_calibration_summary_head">使用陀螺仪的校准数据。请在检查此之后重新校准!</string>
     <string name="calibrate_gyro_title_head">校准</string>
-    <string name="calibrate_gyro_summary_head">把手机放在平面上, 然后点击此按键进行校准</string>
+    <string name="calibrate_gyro_summary_head">把手机放在平面上，然后点击此按键进行校准</string>
     <string name="touchkey_subcat_title">触摸键</string>
     <string name="touchkey_light_title_head">启用按键背光灯</string>
     <string name="touchkey_light_summary_head">在屏幕开启状态下点亮触摸键</string>
     <string name="touchkey_bln_title_head">启用按键通知灯</string>
     <string name="touchkey_bln_summary_head">在屏幕关闭状态下收到通知时点亮触摸键</string>
+    <string name="keyboard_light_title_head">启用键盘背光灯</string>
+    <string name="keyboard_light_summary_head">在屏幕开启状态下点亮键盘背光灯</string>
 
     <string name="cabc_title_head">CABC</string>
     <string name="cabc_summary_head">启用动态背光控制</string>
+
+    <string name="category_haptic_title">振动</string>
+    <string name="vibrator_subcat_title">振动器</string>
+    <string name="vibrator_intensity_title_head">振动器强度</string>
+    <string name="vibrator_intensity_summary_head">设置振动器强度</string>
 
     <string name="category_sound_title">声音</string>
     <string name="sound_volume_title">音量</string>
