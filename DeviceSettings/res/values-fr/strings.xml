@@ -37,7 +37,7 @@
     <string name="use_gyro_calibration_title_head">Utiliser données de calibrage</string>
     <string name="use_gyro_calibration_summary_head">Utiliser les données de calibrage du gyroscope. Faire un calibrage après avoir coché cette option\u00A0!</string>
     <string name="calibrate_gyro_title_head">Calibrer</string>
-    <string name="calibrate_gyro_summary_head">Poser le téléphone sur une surface plane et appuyer ici pour le calibrer</string>
+    <string name="calibrate_gyro_summary_head">Poser le téléphone sur une surface plane puis appuyer ici pour le calibrer</string>
     <string name="touchkey_subcat_title">Touches tactiles</string>
     <string name="touchkey_light_title_head">Rétroéclairage</string>
     <string name="touchkey_light_summary_head">Activer le rétroéclairage des touches tactiles lorsque l\'écran est activé</string>
