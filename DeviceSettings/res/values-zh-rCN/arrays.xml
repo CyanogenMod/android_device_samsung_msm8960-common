@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2013 The CyanogenMod Project
+<!-- Copyright (C) 2012-2013 The CyanogenMod Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -12,10 +12,8 @@
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
      See the License for the specific language governing permissions and
      limitations under the License.
- -->
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string-array name="mdnie_scenario_entries">
         <item>界面</item>
         <item>影片</item>
@@ -25,19 +23,16 @@
         <item>VT</item>
         <item>忽略</item>
     </string-array>
-
     <string-array name="mdnie_mode_entries">
         <item>标准 (默认)</item>
         <item>动态</item>
         <item>自然</item>
         <item>电影</item>
     </string-array>
-
     <string-array name="panel_gamma_entries">
         <item>2.2 (默认)</item>
         <item>1.9</item>
     </string-array>
-
     <string-array name="touchscreen_sensitivity_entries">
         <item>10</item>
         <item>20</item>
@@ -46,7 +41,6 @@
         <item>70</item>
         <item>100</item>
     </string-array>
-
     <string-array name="vibrator_intensity_entries">
         <item>0%</item>
         <item>25%</item>
@@ -54,7 +48,6 @@
         <item>75%</item>
         <item>100%</item>
     </string-array>
-
     <string-array name="panel_color_temp_entries" >
         <item>冷色</item>
         <item>凉色</item>
