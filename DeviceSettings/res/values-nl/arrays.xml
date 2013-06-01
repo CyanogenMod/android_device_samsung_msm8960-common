@@ -12,7 +12,7 @@
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
      See the License for the specific language governing permissions and
      limitations under the License.
--->
+ -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string-array name="mdnie_scenario_entries">
         <item>Camera (standaard)</item>
@@ -31,8 +31,8 @@
         <item>Film</item>
     </string-array>
     <string-array name="panel_gamma_entries">
-        <item>2.2 (standaard)</item>
-        <item>1.9</item>
+        <item>2,2 (standaard)</item>
+        <item>1,9</item>
     </string-array>
     <string-array name="touchscreen_sensitivity_entries">
         <item>10</item>
@@ -41,5 +41,12 @@
         <item>50 (standaard)</item>
         <item>70</item>
         <item>100</item>
+    </string-array>
+    <string-array name="panel_color_temp_entries" >
+        <item>Kouder</item>
+        <item>Koud</item>
+        <item>Normaal</item>
+        <item>Warm</item>
+        <item>Warmer</item>
     </string-array>
 </resources>
