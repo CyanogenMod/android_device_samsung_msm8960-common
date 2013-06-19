@@ -2,4 +2,13 @@
 <resources>
     <!-- Device audio defines "Voice Earpiece Extra Gain" mode. -->
     <bool name="config_hasVocEpXgain">false</bool>
+
+    <!-- Vibrator Tuning -->
+    <bool name="has_vibrator_tuning">true</bool>
+    <string name="vibrator_sysfs_file">"/sys/vibrator/pwm_val"</string>
+    <string name="intensity_max_value">100</string>
+    <string name="intensity_warning_threshold">75</string>
+    <string name="intensity_default_value">50</string>
+    <string name="intensity_min_value">0</string>
+
 </resources>

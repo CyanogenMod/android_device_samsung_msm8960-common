@@ -15,6 +15,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">Configurações avançadas</string>
+    <string name="defaults_button">Redefinir para padrão</string>
     <string name="screen_colors_title">Cores</string>
     <string name="category_mdnie_title">Tela</string>
     <string name="mdnie_scenario_title_head">Cenário</string>
@@ -47,10 +48,11 @@
     <string name="keyboard_light_summary_head">Acender as luzes de fundo do teclado quando a tela estiver ligada</string>
     <string name="cabc_title_head">CCLA</string>
     <string name="cabc_summary_head">Ativar conteúdo do controle de luz de fundo adaptativo</string>
-    <string name="category_haptic_title">Resposta ao toque</string>
-    <string name="vibrator_subcat_title">Vibração</string>
-    <string name="vibrator_intensity_title_head">Intensidade da vibração</string>
-    <string name="vibrator_intensity_summary_head">Definir a intensidade da vibração</string>
+    <string name="category_haptic_title">Resposta Tátil</string>
+    <string name="vibrator_title">Vibração</string>
+    <string name="vibrator_tuning_title">Intensidade da vibração</string>
+    <string name="vibrator_tuning_summary_head">Ajusar a intensidade da resposta por vibração</string>
+    <string name="vibrator_warning">Valores maiores que %1$d não são recomendados</string>
     <string name="category_sound_title">Som</string>
     <string name="sound_volume_title">Volume</string>
     <string name="voc_ep_xgain_title_head">Ganho extra nas ligações</string>

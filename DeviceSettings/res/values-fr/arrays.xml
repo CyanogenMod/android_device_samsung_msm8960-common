@@ -42,13 +42,6 @@
         <item>70</item>
         <item>100</item>
     </string-array>
-    <string-array name="vibrator_intensity_entries">
-        <item>Désactivé</item>
-        <item>25%</item>
-        <item>50% (Par défaut)</item>
-        <item>75%</item>
-        <item>100%</item>
-    </string-array>
     <string-array name="panel_color_temp_entries" >
         <item>Froide</item>
         <item>Fraiche</item>

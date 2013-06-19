@@ -15,6 +15,7 @@
  -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">Paramètres avancés</string>
+    <string name="defaults_button">Réinitialiser</string>
     <string name="screen_colors_title">Couleurs</string>
     <string name="category_mdnie_title">Écran</string>
     <string name="mdnie_scenario_title_head">Scénario</string>
@@ -48,9 +49,10 @@
     <string name="cabc_title_head">CABC</string>
     <string name="cabc_summary_head">Activer le contrôle adaptatif du rétroéclairage</string>
     <string name="category_haptic_title">Haptique</string>
-    <string name="vibrator_subcat_title">Vibreur</string>
-    <string name="vibrator_intensity_title_head">Intensité du vibreur</string>
-    <string name="vibrator_intensity_summary_head">Définir l\'intensité du vibreur</string>
+    <string name="vibrator_title">Vibreur</string>
+    <string name="vibrator_tuning_title">Intensité du vibreur</string>
+    <string name="vibrator_tuning_summary_head">Définir l\'intensité du vibreur</string>
+    <string name="vibrator_warning">Les valeurs supérieurs à %1$d ne sont pas recommandées</string>
     <string name="category_sound_title">Son</string>
     <string name="sound_volume_title">Volume</string>
     <string name="voc_ep_xgain_title_head">Augmentation du volume des appels</string>

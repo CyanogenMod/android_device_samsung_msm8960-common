@@ -16,15 +16,35 @@
 
 package com.cyanogenmod.settings.device;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Context;
 
 public class Utils {
+
+    // Read value from sysfs interface
+    public static String readOneLine(String sFile) {
+        BufferedReader brBuffer;
+        String sLine = null;
+
+        try {
+            brBuffer = new BufferedReader(new FileReader(sFile), 512);
+            try {
+                sLine = brBuffer.readLine();
+            } finally {
+                brBuffer.close();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return sLine;
+    }
 
     /**
      * Write a string value to the specified file.
@@ -62,7 +82,6 @@ public class Utils {
     public static boolean fileExists(String filename) {
         return new File(filename).exists();
     }
-
 
     public static void showDialog(Context ctx, String title, String message) {
         final AlertDialog alertDialog = new AlertDialog.Builder(ctx).create();

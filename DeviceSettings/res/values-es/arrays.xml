@@ -41,13 +41,6 @@
         <item>70</item>
         <item>100</item>
     </string-array>
-    <string-array name="vibrator_intensity_entries">
-        <item>0%</item>
-        <item>25%</item>
-        <item>50% (por defecto)</item>
-        <item>75%</item>
-        <item>100%</item>
-    </string-array>
     <string-array name="panel_color_temp_entries" >
         <item>Muy fría</item>
         <item>Fría</item>

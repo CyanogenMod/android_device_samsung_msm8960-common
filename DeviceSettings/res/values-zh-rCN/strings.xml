@@ -14,7 +14,8 @@
      limitations under the License.
  -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name">Galaxy S III 设置</string>
+    <string name="app_name">高级设置</string>
+    <string name="defaults_button">还原为默认值</string>
     <string name="screen_colors_title">颜色</string>
     <string name="category_mdnie_title">屏幕</string>
     <string name="mdnie_scenario_title_head">场景</string>
@@ -48,9 +49,10 @@
     <string name="cabc_title_head">CABC</string>
     <string name="cabc_summary_head">启用动态背光控制</string>
     <string name="category_haptic_title">振动</string>
-    <string name="vibrator_subcat_title">振动器</string>
-    <string name="vibrator_intensity_title_head">振动器强度</string>
-    <string name="vibrator_intensity_summary_head">设置振动器强度</string>
+    <string name="vibrator_title">振动器</string>
+    <string name="vibrator_tuning_title">振动强度</string>
+    <string name="vibrator_tuning_summary_head">调整振动反馈的强度</string>
+    <string name="vibrator_warning">不建议使用超过 %1$d 的值</string>
     <string name="category_sound_title">声音</string>
     <string name="sound_volume_title">音量</string>
     <string name="voc_ep_xgain_title_head">加强通话增益</string>
