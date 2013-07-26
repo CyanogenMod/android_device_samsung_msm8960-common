@@ -32,6 +32,7 @@ COMMON_GLOBAL_CFLAGS += -DNEW_ION_API
 endif
 TARGET_GLOBAL_CFLAGS += -mfpu=neon-vfpv4 -mfloat-abi=softfp
 TARGET_GLOBAL_CPPFLAGS += -mfpu=neon-vfpv4 -mfloat-abi=softfp
+TARGET_CPU_VARIANT=krait
 
 # Krait optimizations
 TARGET_USE_KRAIT_BIONIC_OPTIMIZATION := true
