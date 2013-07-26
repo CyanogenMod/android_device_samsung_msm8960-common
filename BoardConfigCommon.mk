@@ -32,7 +32,7 @@ COMMON_GLOBAL_CFLAGS += -DNEW_ION_API
 endif
 TARGET_GLOBAL_CFLAGS += -mfpu=neon-vfpv4 -mfloat-abi=softfp
 TARGET_GLOBAL_CPPFLAGS += -mfpu=neon-vfpv4 -mfloat-abi=softfp
-TARGET_CPU_VARIANT=krait
+TARGET_CPU_VARIANT := krait
 
 # Krait optimizations
 TARGET_USE_KRAIT_BIONIC_OPTIMIZATION := true
@@ -98,4 +98,4 @@ TARGET_USES_QCOM_COMPRESSED_AUDIO := true
 BOARD_HAVE_NEW_QC_GPS := true
 
 # Use CAF media driver variant for 8960
-TARGET_QCOM_MEDIA_VARIANT := caf
+#TARGET_QCOM_MEDIA_VARIANT := caf
