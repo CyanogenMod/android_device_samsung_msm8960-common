@@ -24,12 +24,10 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml \
     frameworks/native/data/etc/android.hardware.sensor.gyroscope.xml:system/etc/permissions/android.hardware.sensor.gyroscope.xml \
     frameworks/native/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml \
-	frameworks/native/data/etc/android.hardware.sensor.barometer.xml:system/etc/permissions/android.hardware.sensor.barometer.xml \
+    frameworks/native/data/etc/android.hardware.sensor.barometer.xml:system/etc/permissions/android.hardware.sensor.barometer.xml \
     frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
     frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml \
     frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
-    frameworks/native/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
-    frameworks/native/data/etc/android.hardware.sensor.compass.xml:system/etc/permissions/android.hardware.sensor.compass.xml \
     frameworks/base/nfc-extras/com.android.nfc_extras.xml:system/etc/permissions/com.android.nfc_extras.xml \
     frameworks/native/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml \
     frameworks/native/data/etc/com.nxp.mifare.xml:system/etc/permissions/com.nxp.mifare.xml \
@@ -57,8 +55,8 @@ PRODUCT_PACKAGES += \
 
 # GalaxyS3Settings
 PRODUCT_PACKAGES += \
-     GalaxyS3Settings \
-     SamsungServiceMode
+    GalaxyS3Settings \
+    SamsungServiceMode
 
 # Misc
 PRODUCT_PACKAGES += \
@@ -75,9 +73,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     device/samsung/msm8960-common/keylayout/AVRCP.kl:system/usr/keylayout/AVRCP.kl \
     device/samsung/msm8960-common/keylayout/Generic.kl:system/usr/keylayout/Generic.kl \
-    device/samsung/msm8960-common/keylayout/qwerty.kl:system/usr/keylayout/qwerty.kl\
-	device/samsung/msm8960-common/keylayout/cyttsp-i2c.kl:system/usr/keylayout/cyttsp-i2c.kl \
-	device/samsung/msm8960-common/keylayout/keypad_8960.kl:system/usr/keylayout/keypad_8960.kl \
+    device/samsung/msm8960-common/keylayout/cyttsp-i2c.kl:system/usr/keylayout/cyttsp-i2c.kl \
+    device/samsung/msm8960-common/keylayout/keypad_8960.kl:system/usr/keylayout/keypad_8960.kl \
     device/samsung/msm8960-common/keylayout/Vendor_045e_Product_028e.kl:system/usr/keylayout/Vendor_045e_Product_028e.kl \
     device/samsung/msm8960-common/keylayout/Vendor_046d_Product_c216.kl:system/usr/keylayout/Vendor_046d_Product_c216.kl \
     device/samsung/msm8960-common/keylayout/Vendor_046d_Product_c294.kl:system/usr/keylayout/Vendor_046d_Product_c294.kl \
@@ -91,19 +88,12 @@ PRODUCT_COPY_FILES += \
 # Keychars
 PRODUCT_COPY_FILES += \
     device/samsung/msm8960-common/keychars/Generic.kcm:system/usr/keychars/Generic.kcm \
-    device/samsung/msm8960-common/keychars/qwerty.kcm:system/usr/keychars/qwerty.kcm \
-    device/samsung/msm8960-common/keychars/qwerty2.kcm:system/usr/keychars/qwerty2.kcm \
     device/samsung/msm8960-common/keychars/Virtual.kcm:system/usr/keychars/Virtual.kcm
-
-# IDC
-PRODUCT_COPY_FILES += \
-    device/samsung/msm8960-common/idc/qwerty.idc:system/usr/idc/qwerty.idc \
-    device/samsung/msm8960-common/idc/qwerty2.idc:system/usr/idc/qwerty2.idc
 
 # Needed to reset bootmode when leaving recovery
 PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/recovery/postrecoveryboot.sh:recovery/root/sbin/postrecoveryboot.sh \
-	$(LOCAL_PATH)/recovery/postrecoveryboot.sh:recovery/system/bin/postrecoveryboot.sh
+    $(LOCAL_PATH)/recovery/postrecoveryboot.sh:recovery/root/sbin/postrecoveryboot.sh \
+    $(LOCAL_PATH)/recovery/postrecoveryboot.sh:recovery/system/bin/postrecoveryboot.sh
 
 # We have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
@@ -113,4 +103,3 @@ DEVICE_PACKAGE_OVERLAYS += device/samsung/msm8960-common/overlay
 
 # common msm8960
 $(call inherit-product, device/samsung/qcom-common/qcom-common.mk)
-
