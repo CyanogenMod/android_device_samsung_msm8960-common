@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2013 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+ -->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">Avancerede indstillinger</string>
+    <string name="defaults_button">Nulstil til standard</string>
+    <string name="screen_colors_title">Farver</string>
+    <string name="category_mdnie_title">Skærm</string>
+    <string name="mdnie_scenario_title_head">Scenarie</string>
+    <string name="mdnie_scenario_summary_head">Angiv mDNIe-scenariet</string>
+    <string name="mdnie_mode_title_head">Tilstand</string>
+    <string name="mdnie_mode_summary_head">Angiv mDNIe-tilstanden</string>
+    <string name="mdnie_negative_title_head">Negativ tilstand</string>
+    <string name="mdnie_negative_summary_head">Omvend skærmfarver</string>
+    <string name="mdnie_outdoor_title_head">Udendørs tilstand</string>
+    <string name="mdnie_outdoor_summary_head">Tilpas skærm til udendørs brug</string>
+    <string name="panel_gamma_title_head">Gammaværdi for skærm</string>
+    <string name="panel_gamma_summary_head">Angiv gammaværdi for skærm</string>
+    <string name="panel_color_temp_title_head">Farvetemperatur for skærm</string>
+    <string name="panel_color_temp_summary_head">Sluk og tænd skærm for at aktivere</string>
+    <string name="touchscreen_subcat_title">Touchskærm</string>
+    <string name="touchscreen_sensitivity_title_head">Berøringsfølsomhed</string>
+    <string name="touchscreen_sensitivity_summary_head">Angiv følsomhed til berøringspanelet</string>
+    <string name="category_sensors_title">Sensorer</string>
+    <string name="gyro_subcat_title">Gyroskop</string>
+    <string name="use_gyro_calibration_title_head">Brug kalibreringsdata</string>
+    <string name="use_gyro_calibration_summary_head">Brug kalibreringsværdier for gyroskop. Lav en kalibrering, når du har tjekket dette!</string>
+    <string name="calibrate_gyro_title_head">Kalibrér</string>
+    <string name="calibrate_gyro_summary_head">Læg din telefon på en plan overflade, og tryg her for at kalibrere</string>
+    <string name="touchkey_subcat_title">Berøringstast</string>
+    <string name="touchkey_light_title_head">Aktivér baggrundslys til taster</string>
+    <string name="touchkey_light_summary_head">Oplys berøringstasterne, når skærmen er tændt</string>
+    <string name="touchkey_bln_title_head">Aktivér tasteunderretninger</string>
+    <string name="touchkey_bln_summary_head">Oplys berøringstasterne, når skærmen er slukket, og underretninger modtages</string>
+    <string name="keyboard_light_title_head">Aktivér baggrundslys til tastatur</string>
+    <string name="keyboard_light_summary_head">Tænd for baggrundslys til tastatur, når skærmen er tændt</string>
+    <string name="cabc_title_head">CABC</string>
+    <string name="cabc_summary_head">Aktivér indholdsafhængig styring af baggrundslys (CABC)</string>
+    <string name="category_haptic_title">Haptisk</string>
+    <string name="vibrator_title">Vibrator</string>
+    <string name="vibrator_tuning_title">Vibrationsstyrke</string>
+    <string name="vibrator_tuning_summary_head">Justér styrken på vibrationsfeedback</string>
+    <string name="vibrator_warning">Værdier højere end %1$d anbefales ikke</string>
+    <string name="category_sound_title">Lyd</string>
+    <string name="sound_volume_title">Lydstyrke</string>
+    <string name="voc_ep_xgain_title_head">Ekstra høj lydstyrke under stemmeopkald</string>
+    <string name="voc_ep_xgain_summary_head">Forøg øresneglens lydstyrke under stemmeopkald</string>
+    <string name="category_dock_title">Dock</string>
+    <string name="dockaudio_subcat_title">DOCK-LYD</string>
+    <string name="use_dock_audio_title_head">Brug dock-USB-lyd</string>
+    <string name="use_dock_audio_summary_head">Brug den passive lydudgang på docken</string>
+</resources>
