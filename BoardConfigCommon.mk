@@ -17,7 +17,6 @@ BOARD_VENDOR := samsung
 # Platform
 TARGET_BOARD_PLATFORM := msm8960
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno200
-TARGET_ARCH_VARIANT_CPU := cortex-a9
 
 # inherit from qcom-common
 -include device/samsung/qcom-common/BoardConfigCommon.mk
@@ -33,14 +32,6 @@ endif
 TARGET_GLOBAL_CFLAGS += -mfpu=neon-vfpv4 -mfloat-abi=softfp
 TARGET_GLOBAL_CPPFLAGS += -mfpu=neon-vfpv4 -mfloat-abi=softfp
 TARGET_CPU_VARIANT := krait
-
-# Krait optimizations
-TARGET_USE_KRAIT_BIONIC_OPTIMIZATION := true
-TARGET_USE_KRAIT_PLD_SET := true
-TARGET_KRAIT_BIONIC_PLDOFFS := 10
-TARGET_KRAIT_BIONIC_PLDTHRESH := 10
-TARGET_KRAIT_BIONIC_BBTHRESH := 64
-TARGET_KRAIT_BIONIC_PLDSIZE := 64
 
 # Adreno configuration
 BOARD_EGL_CFG := device/samsung/msm8960-common/configs/egl.cfg
