@@ -81,6 +81,9 @@ TARGET_USES_QCOM_COMPRESSED_AUDIO := true
 # QCOM enhanced A/V
 TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
 
+# QCOM BSP Enabled
+TARGET_USES_QCOM_BSP := true
+
 # Kernel time optimization
 # temp remove - causing issues with short/long presses
 # KERNEL_HAS_GETTIMEOFDAY_HELPER := true
