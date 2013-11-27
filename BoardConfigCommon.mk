@@ -96,3 +96,30 @@ TARGET_QCOM_MEDIA_VARIANT := caf
 
 # Use retire fence from MDP driver
 TARGET_DISPLAY_USE_RETIRE_FENCE := true
+
+# SELinux
+BOARD_SEPOLICY_DIRS += \
+        device/samsung/msm8960-common/sepolicy
+
+BOARD_SEPOLICY_UNION += \
+        file_contexts \
+        app.te \
+        bluetooth.te \
+        device.te \
+        domain.te \
+        drmserver.te \
+        file.te \
+        hci_init.te \
+        healthd.te \
+        init.te \
+        init_shell.te \
+        keystore.te \
+        kickstart.te \
+        mediaserver.te \
+        nfc.te \
+        rild.te \
+        surfaceflinger.te \
+        system.te \
+        ueventd.te \
+        wpa.te \
+        wpa_socket.te
