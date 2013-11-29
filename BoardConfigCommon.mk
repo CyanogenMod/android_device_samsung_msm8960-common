@@ -83,6 +83,7 @@ TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
 
 # QCOM BSP Enabled
 TARGET_USES_QCOM_BSP := true
+COMMON_GLOBAL_CFLAGS += -DQCOM_BSP
 
 # Kernel time optimization
 # temp remove - causing issues with short/long presses
