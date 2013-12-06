@@ -46,6 +46,10 @@ PRODUCT_PACKAGES += \
     audio.r_submix.default \
     libaudio-resampler
 
+# Camera Wrapper
+PRODUCT_PACKAGES += \
+    camera.MSM8960
+
 # HAL
 PRODUCT_PACKAGES += \
     copybit.msm8960 \
