@@ -153,6 +153,9 @@ char * camera_fixup_setparams(struct camera_device * device, const char * settin
 #ifdef ENABLE_ZSL
     params.set(android::CameraParameters::KEY_ZSL, "on");
     params.set(android::CameraParameters::KEY_CAMERA_MODE, "1");
+#ifdef MAGIC_ZSL_1508
+    camera_send_command(device, 1508, 0, 0);
+#endif
 #endif
     android::String8 strParams = params.flatten();
 
@@ -344,7 +347,7 @@ int camera_cancel_auto_focus(struct camera_device * device)
 #ifndef ENABLE_ZSL
     return 0;
 #else
-    VENDOR_CALL(device, cancel_auto_focus);
+    return VENDOR_CALL(device, cancel_auto_focus);
 #endif
 }
 

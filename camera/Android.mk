@@ -1,12 +1,16 @@
 # Currently only for apexqtmo and expressatt
 ifeq ($(TARGET_PROVIDES_CAMERA_HAL),true)
 
-ifneq ($(TARGET_PRODUCT),$(filter $(TARGET_PRODUCT),cm_apexqtmo cm_expressatt))
+LOCAL_PATH := $(call my-dir)
+include $(CLEAR_VARS)
+
+ifeq ($(TARGET_NEED_CAMERA_ZSL),true)
     LOCAL_CFLAGS += -DENABLE_ZSL
 endif
 
-LOCAL_PATH := $(call my-dir)
-include $(CLEAR_VARS)
+ifeq ($(TARGET_NEED_SAMSUNG_MAGIC_ZSL_1508),true)
+    LOCAL_CFLAGS += -DMAGIC_ZSL_1508
+endif
 
 LOCAL_SRC_FILES := \
     CameraWrapper.cpp
