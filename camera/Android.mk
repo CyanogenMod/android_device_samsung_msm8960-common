@@ -4,6 +4,10 @@ ifeq ($(TARGET_PROVIDES_CAMERA_HAL),true)
 LOCAL_PATH := $(call my-dir)
 include $(CLEAR_VARS)
 
+ifeq ($(TARGET_NEED_DISABLE_AUTOFOCUS),true)
+    LOCAL_CFLAGS += -DDISABLE_AUTOFOCUS
+endif
+
 ifeq ($(TARGET_NEED_CAMERA_ZSL),true)
     LOCAL_CFLAGS += -DENABLE_ZSL
 endif
