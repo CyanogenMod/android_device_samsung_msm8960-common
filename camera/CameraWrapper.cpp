@@ -120,15 +120,13 @@ static char * camera_fixup_getparams(int id, const char * settings)
 char * camera_fixup_setparams(struct camera_device * device, const char * settings)
 {
     int id = CAMERA_ID(device);
-    bool isVideo = false;
     android::CameraParameters params;
     params.unflatten(android::String8(settings));
     const char KEY_SAMSUNG_CAMERA_MODE[] = "cam_mode";
     const char* camMode = params.get(KEY_SAMSUNG_CAMERA_MODE);
 
-    if (params.get(android::CameraParameters::KEY_RECORDING_HINT)) {
-        isVideo = !strcmp(params.get(android::CameraParameters::KEY_RECORDING_HINT), "true");
-    }
+    bool isVideo = !strcmp(params.get(android::CameraParameters::KEY_RECORDING_HINT), "true");
+
     // fix params here
     if(params.get("iso")) {
         const char* isoMode = params.get(android::CameraParameters::KEY_ISO_MODE);
@@ -151,10 +149,12 @@ char * camera_fixup_setparams(struct camera_device * device, const char * settin
     /* Samsung camcorder mode */
     params.set(KEY_SAMSUNG_CAMERA_MODE, isVideo ? "1" : "0");
 #ifdef ENABLE_ZSL
-    params.set(android::CameraParameters::KEY_ZSL, "on");
-    params.set(android::CameraParameters::KEY_CAMERA_MODE, "1");
+    params.set(android::CameraParameters::KEY_ZSL, isVideo ? "off" : "on");
+    params.set(android::CameraParameters::KEY_CAMERA_MODE, isVideo ? "0" : "1");
 #ifdef MAGIC_ZSL_1508
-    camera_send_command(device, 1508, 0, 0);
+    if (!isVideo) {
+        camera_send_command(device, 1508, 0, 0);
+    }
 #endif
 #endif
     android::String8 strParams = params.flatten();
