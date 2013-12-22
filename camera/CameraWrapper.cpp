@@ -104,11 +104,13 @@ static char * camera_fixup_getparams(int id, const char * settings)
     // fix params here
     params.set(android::CameraParameters::KEY_SUPPORTED_ISO_MODES, iso_values[id]);
 
+#ifdef DISABLE_FACE_DETECTION
     /* Disable face detection for front facing camera */
     if(id == 1) {
         params.set(android::CameraParameters::KEY_MAX_NUM_DETECTED_FACES_HW, "0");
         params.set(android::CameraParameters::KEY_MAX_NUM_DETECTED_FACES_SW, "0");
     }
+#endif
 
     android::String8 strParams = params.flatten();
     char *ret = strdup(strParams.string());
@@ -140,11 +142,13 @@ char * camera_fixup_setparams(struct camera_device * device, const char * settin
             params.set(android::CameraParameters::KEY_ISO_MODE, "800");
     }
 
+#ifdef DISABLE_FACE_DETECTION
     /* Disable face detection for front facing camera */
     if(id == 1) {
         params.set(android::CameraParameters::KEY_MAX_NUM_DETECTED_FACES_HW, "0");
         params.set(android::CameraParameters::KEY_MAX_NUM_DETECTED_FACES_SW, "0");
     }
+#endif
 
     /* Samsung camcorder mode */
     params.set(KEY_SAMSUNG_CAMERA_MODE, isVideo ? "1" : "0");
@@ -156,6 +160,8 @@ char * camera_fixup_setparams(struct camera_device * device, const char * settin
         camera_send_command(device, 1508, 0, 0);
     }
 #endif
+
+
 #endif
     android::String8 strParams = params.flatten();
 
