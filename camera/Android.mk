@@ -27,6 +27,14 @@ ifeq ($(TARGET_NEED_PREVIEW_SIZE_FIXUP),true)
     LOCAL_CFLAGS += -DPREVIEW_SIZE_FIXUP
 endif
 
+ifeq ($(TARGET_ADD_ISO_MODE_1600),true)
+    LOCAL_CFLAGS += -DISO_MODE_1600
+endif
+
+ifeq ($(TARGET_ADD_ISO_MODE_HJR),true)
+    LOCAL_CFLAGS += -DISO_MODE_HJR
+endif
+
 LOCAL_SRC_FILES := \
     CameraWrapper.cpp
 
