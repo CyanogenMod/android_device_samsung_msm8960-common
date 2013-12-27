@@ -112,8 +112,9 @@ static char * camera_fixup_getparams(int id, const char * settings)
     params.unflatten(android::String8(settings));
 
     // fix params here
+#ifdef QCOM_HARDWARE
     params.set(android::CameraParameters::KEY_SUPPORTED_ISO_MODES, iso_values[id]);
-
+#endif
 #ifdef PREVIEW_SIZE_FIXUP
     params.remove(android::CameraParameters::KEY_SUPPORTED_VIDEO_SIZES);
     params.remove(android::CameraParameters::KEY_PREFERRED_PREVIEW_SIZE_FOR_VIDEO);
