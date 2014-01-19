@@ -118,17 +118,6 @@ static char * camera_fixup_getparams(int id, const char * settings)
 #ifdef PREVIEW_SIZE_FIXUP
     params.remove(android::CameraParameters::KEY_SUPPORTED_VIDEO_SIZES);
     params.remove(android::CameraParameters::KEY_PREFERRED_PREVIEW_SIZE_FOR_VIDEO);
-    if(id == 0) {
-        params.set(android::CameraParameters::KEY_SUPPORTED_PREVIEW_SIZES, "1280x720,800x480,720x480,640x480,320x240,176x144");
-        params.set(android::CameraParameters::KEY_SUPPORTED_FOCUS_MODES, "auto,infinity,macro,fixed");
-        params.set(android::CameraParameters::KEY_SUPPORTED_SELECTABLE_ZONE_AF, "auto,spot-metering,center-weighted,frame-average");
-        params.set(android::CameraParameters::KEY_SUPPORTED_TOUCH_AF_AEC, "touch-off,touch-on");
-    } else {
-        params.set(android::CameraParameters::KEY_SUPPORTED_PREVIEW_SIZES, "640x480,320x240,176x144");
-        params.set(android::CameraParameters::KEY_SUPPORTED_FOCUS_MODES, "infinity");
-        params.set(android::CameraParameters::KEY_SUPPORTED_SELECTABLE_ZONE_AF, "");
-        params.set(android::CameraParameters::KEY_SUPPORTED_TOUCH_AF_AEC, "");
-        }
 #endif
 
 #ifdef DISABLE_FACE_DETECTION
@@ -181,17 +170,6 @@ char * camera_fixup_setparams(struct camera_device * device, const char * settin
 #ifdef PREVIEW_SIZE_FIXUP
     params.remove(android::CameraParameters::KEY_SUPPORTED_VIDEO_SIZES);
     params.remove(android::CameraParameters::KEY_PREFERRED_PREVIEW_SIZE_FOR_VIDEO);
-    if(id == 0) {
-        params.set(android::CameraParameters::KEY_SUPPORTED_PREVIEW_SIZES, "1280x720,800x480,720x480,640x480,320x240,176x144");
-        params.set(android::CameraParameters::KEY_SUPPORTED_FOCUS_MODES, "auto,infinity,macro,fixed");
-        params.set(android::CameraParameters::KEY_SUPPORTED_SELECTABLE_ZONE_AF, "auto,spot-metering,center-weighted,frame-average");
-        params.set(android::CameraParameters::KEY_SUPPORTED_TOUCH_AF_AEC, "touch-off,touch-on");
-    } else {
-        params.set(android::CameraParameters::KEY_SUPPORTED_PREVIEW_SIZES, "640x480,320x240,176x144");
-        params.set(android::CameraParameters::KEY_SUPPORTED_FOCUS_MODES, "infinity");
-        params.set(android::CameraParameters::KEY_SUPPORTED_SELECTABLE_ZONE_AF, "");
-        params.set(android::CameraParameters::KEY_SUPPORTED_TOUCH_AF_AEC, "");
-        }
 #endif
 
 #ifdef DISABLE_FACE_DETECTION
