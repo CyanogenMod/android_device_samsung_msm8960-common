@@ -85,10 +85,6 @@ PRODUCT_COPY_FILES += \
     device/samsung/msm8960-common/keylayout/Vendor_05ac_Product_0239.kl:system/usr/keylayout/Vendor_05ac_Product_0239.kl \
     device/samsung/msm8960-common/keylayout/Vendor_22b8_Product_093d.kl:system/usr/keylayout/Vendor_22b8_Product_093d.kl
 
-# property overrides
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.sys.dun.override=0
-
 # Keychars
 PRODUCT_COPY_FILES += \
     device/samsung/msm8960-common/keychars/Generic.kcm:system/usr/keychars/Generic.kcm \
