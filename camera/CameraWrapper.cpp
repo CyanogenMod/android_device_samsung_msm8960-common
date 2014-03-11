@@ -376,19 +376,23 @@ int camera_auto_focus(struct camera_device * device)
 
 int camera_cancel_auto_focus(struct camera_device * device)
 {
+    int ret = 0;
+
     ALOGV("%s", __FUNCTION__);
     ALOGV("%s->%08X->%08X", __FUNCTION__, (uintptr_t)device, (uintptr_t)(((wrapper_camera_device_t*)device)->vendor));
 
     if(!device)
         return -EINVAL;
 
-    /* APEXQ/D2/EXPRESS: Calling cancel_auto_focus causes the camera to crash for unknown reasons. Disabling
-     * it has no adverse effect. Return 0 */
-#ifdef DISABLE_AUTOFOCUS
-    return 0;
-#else
-    return VENDOR_CALL(device, cancel_auto_focus);
+    /* APEXQ/EXPRESS: Calling cancel_auto_focus causes the camera to crash for unknown reasons.
+     * Disabling it has no adverse effect. For others, only call cancel_auto_focus when the
+     * preview is enabled. This is needed so some 3rd party camera apps don't lock up. */
+#ifndef DISABLE_AUTOFOCUS
+    if (camera_preview_enabled(device))
+        ret = VENDOR_CALL(device, cancel_auto_focus);
 #endif
+
+    return ret;
 }
 
 int camera_take_picture(struct camera_device * device)
