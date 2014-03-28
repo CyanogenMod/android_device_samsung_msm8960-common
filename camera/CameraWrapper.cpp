@@ -119,6 +119,9 @@ static char * camera_fixup_getparams(int id, const char * settings)
     params.remove(android::CameraParameters::KEY_SUPPORTED_VIDEO_SIZES);
     params.remove(android::CameraParameters::KEY_PREFERRED_PREVIEW_SIZE_FOR_VIDEO);
 #endif
+#ifdef VIDEO_PREVIEW_ALWAYS_MAX
+    params.set(android::CameraParameters::KEY_PREFERRED_PREVIEW_SIZE_FOR_VIDEO, "1920x1080");
+#endif
 
 #ifdef DISABLE_FACE_DETECTION
 #ifndef DISABLE_FACE_DETECTION_BOTH_CAMERAS
