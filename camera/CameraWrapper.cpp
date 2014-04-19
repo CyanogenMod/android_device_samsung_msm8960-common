@@ -209,14 +209,12 @@ char * camera_fixup_setparams(struct camera_device * device, const char * settin
 #endif
 #ifdef ENABLE_ZSL
     /* Only activate ZSL if requested by the app! */
-    if (enableZSL) {
-        params.set(android::CameraParameters::KEY_CAMERA_MODE, "1");
+        params.set(android::CameraParameters::KEY_CAMERA_MODE, enableZSL ? "1" : "0");
 #ifdef MAGIC_ZSL_1508
         if (!isVideo) {
             camera_send_command(device, 1508, 0, 0);
         }
 #endif
-    }
 #endif
     android::String8 strParams = params.flatten();
 
