@@ -97,6 +97,9 @@ static int check_vendor_module()
 }
 
 const static char * iso_values[] = {"auto,"
+#ifdef ISO_MODE_50
+"ISO50,"
+#endif
 #ifdef ISO_MODE_HJR
 "ISO_HJR,"
 #endif
@@ -116,8 +119,7 @@ static char * camera_fixup_getparams(int id, const char * settings)
     params.set(android::CameraParameters::KEY_SUPPORTED_ISO_MODES, iso_values[id]);
 #endif
 #ifdef PREVIEW_SIZE_FIXUP
-    params.remove(android::CameraParameters::KEY_SUPPORTED_VIDEO_SIZES);
-    params.remove(android::CameraParameters::KEY_PREFERRED_PREVIEW_SIZE_FOR_VIDEO);
+    params.set(android::CameraParameters::KEY_PREFERRED_PREVIEW_SIZE_FOR_VIDEO, id ? "640x480" : "800x480");
 #endif
 #ifdef VIDEO_PREVIEW_ALWAYS_MAX
     params.set(android::CameraParameters::KEY_PREFERRED_PREVIEW_SIZE_FOR_VIDEO, "1920x1080");
@@ -144,6 +146,8 @@ static char * camera_fixup_getparams(int id, const char * settings)
     return ret;
 }
 
+static bool wasVideo = false;
+
 char * camera_fixup_setparams(struct camera_device * device, const char * settings)
 {
     int id = CAMERA_ID(device);
@@ -153,6 +157,7 @@ char * camera_fixup_setparams(struct camera_device * device, const char * settin
     const char* camMode = params.get(KEY_SAMSUNG_CAMERA_MODE);
 
     bool isVideo = !strcmp(params.get(android::CameraParameters::KEY_RECORDING_HINT), "true");
+    bool enableZSL = !strcmp(params.get(android::CameraParameters::KEY_ZSL), "on");
 
     // fix params here
     // No need to fix-up ISO_HJR, it is the same for userspace and the camera lib
@@ -169,12 +174,13 @@ char * camera_fixup_setparams(struct camera_device * device, const char * settin
             params.set(android::CameraParameters::KEY_ISO_MODE, "800");
         else if(strcmp(isoMode, "ISO1600") == 0)
             params.set(android::CameraParameters::KEY_ISO_MODE, "1600");
+        else if(strcmp(isoMode, "ISO50") == 0)
+            params.set(android::CameraParameters::KEY_ISO_MODE, "50");
     }
 #endif
 
 #ifdef PREVIEW_SIZE_FIXUP
-    params.remove(android::CameraParameters::KEY_SUPPORTED_VIDEO_SIZES);
-    params.remove(android::CameraParameters::KEY_PREFERRED_PREVIEW_SIZE_FOR_VIDEO);
+    params.set(KEY_SAMSUNG_CAMERA_MODE, "-1");
 #endif
 
 #ifdef DISABLE_FACE_DETECTION
@@ -193,17 +199,29 @@ char * camera_fixup_setparams(struct camera_device * device, const char * settin
 
 #ifdef SAMSUNG_CAMERA_MODE
     /* Samsung camcorder mode */
-    params.set(KEY_SAMSUNG_CAMERA_MODE, isVideo ? "1" : "0");
+    if (id == 1) {
+        if (!(!strcmp(camMode, "1") && !isVideo) || wasVideo) {
+            if (!strcmp(params.get(android::CameraParameters::KEY_PREVIEW_FRAME_RATE), "15") && !isVideo) {
+                // Do nothing. Hangouts actually likes the mode to be -1.
+            } else {
+            params.set(KEY_SAMSUNG_CAMERA_MODE, isVideo ? "1" : "0");
+            }
+            wasVideo = (isVideo || wasVideo);
+        }
+    } else {
+    wasVideo = false;
+    }
 #endif
 #ifdef ENABLE_ZSL
     params.set(android::CameraParameters::KEY_ZSL, isVideo ? "off" : "on");
     params.set(android::CameraParameters::KEY_CAMERA_MODE, isVideo ? "0" : "1");
 #ifdef MAGIC_ZSL_1508
-    if (!isVideo) {
-        camera_send_command(device, 1508, 0, 0);
-    }
+        if (!isVideo) {
+            camera_send_command(device, 1508, 0, 0);
+        }
 #endif
 #endif
+
     android::String8 strParams = params.flatten();
 
     if (fixed_set_params[id])
@@ -560,6 +578,7 @@ int camera_device_open(const hw_module_t* module, const char* name,
     int cameraid;
     wrapper_camera_device_t* camera_device = NULL;
     camera_device_ops_t* camera_ops = NULL;
+    wasVideo = false;
 
     android::Mutex::Autolock lock(gCameraWrapperLock);
 

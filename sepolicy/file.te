@@ -5,7 +5,6 @@ type qmux_gps_socket, file_type;
 type qmux_radio_socket, file_type;
 
 type firmware_file, fs_type;
-type audio_firmware_file, file_type;
 
 allow efs_file rootfs:filesystem associate;
 allow cache_file rootfs:filesystem associate;
