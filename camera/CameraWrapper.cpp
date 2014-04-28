@@ -200,10 +200,17 @@ char * camera_fixup_setparams(struct camera_device * device, const char * settin
 #ifdef SAMSUNG_CAMERA_MODE
     /* Samsung camcorder mode */
     if (id == 1) {
+    /* Enable for front camera only */
         if (!(!strcmp(camMode, "1") && !isVideo) || wasVideo) {
-            if (!strcmp(params.get(android::CameraParameters::KEY_PREVIEW_FRAME_RATE), "15") && !isVideo) {
-                // Do nothing. Hangouts actually likes the mode to be -1.
+        /* Enable only if not already set (Snapchat) but do enable if the setting is left
+        over while switching from stills to video */
+            if ((!strcmp(params.get(android::CameraParameters::KEY_PREVIEW_FRAME_RATE), "15") ||
+               (!strcmp(params.get(android::CameraParameters::KEY_PREVIEW_SIZE), "320x240") &&
+               !strcmp(params.get(android::CameraParameters::KEY_JPEG_QUALITY), "96"))) && !isVideo) {
+                /* Do not set for video chat in Hangouts (Frame rate 15) or Skype (Preview size 320x240
+                and jpeg quality 96 */
             } else {
+            /* "Normal case". Required to prevent distorted video and reboots while taking snaps */
             params.set(KEY_SAMSUNG_CAMERA_MODE, isVideo ? "1" : "0");
             }
             wasVideo = (isVideo || wasVideo);
