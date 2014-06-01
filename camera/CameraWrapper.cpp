@@ -179,10 +179,6 @@ char * camera_fixup_setparams(struct camera_device * device, const char * settin
     }
 #endif
 
-#ifdef PREVIEW_SIZE_FIXUP
-    params.set(KEY_SAMSUNG_CAMERA_MODE, "-1");
-#endif
-
 #ifdef DISABLE_FACE_DETECTION
 #ifndef DISABLE_FACE_DETECTION_BOTH_CAMERAS
     /* Disable face detection for front facing camera */
