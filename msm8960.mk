@@ -37,10 +37,6 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.bluetooth_le.xml:system/etc/permissions/android.hardware.bluetooth_le.xml \
     packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/permissions/android.software.live_wallpaper.xml
 
-
-PRODUCT_PACKAGES += \
-    keystore.msm8960
-
 # Audio
 PRODUCT_PACKAGES += \
     audio_policy.msm8960 \
