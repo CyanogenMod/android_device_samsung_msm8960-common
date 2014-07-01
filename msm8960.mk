@@ -101,5 +101,12 @@ PRODUCT_TAGS += dalvik.gc.type-precise
 # Common overlay
 DEVICE_PACKAGE_OVERLAYS += device/samsung/msm8960-common/overlay
 
+# Properties
+PRODUCT_PROPERTY_OVERRIDES += \
+    qcom.hw.aac.encoder=true \
+    af.resampler.quality=255 \
+    ro.config.vc_call_vol_steps=7 \
+    ro.ksm.default=1
+
 # common msm8960
 $(call inherit-product, device/samsung/qcom-common/qcom-common.mk)
