@@ -156,8 +156,13 @@ char * camera_fixup_setparams(struct camera_device * device, const char * settin
     const char KEY_SAMSUNG_CAMERA_MODE[] = "cam_mode";
     const char* camMode = params.get(KEY_SAMSUNG_CAMERA_MODE);
 
-    bool isVideo = !strcmp(params.get(android::CameraParameters::KEY_RECORDING_HINT), "true");
     bool enableZSL = !strcmp(params.get(android::CameraParameters::KEY_ZSL), "on");
+
+    // jactive device camera don't seem to have recording hint param, so read it safely
+    const char* recordingHint = params.get(android::CameraParameters::KEY_RECORDING_HINT);
+    bool isVideo = false;
+    if (recordingHint)
+        isVideo = !strcmp(recordingHint, "true");
 
     // fix params here
     // No need to fix-up ISO_HJR, it is the same for userspace and the camera lib
