@@ -34,7 +34,7 @@ public class DisplayColorCalibration {
     }
 
     public static int getMaxValue()  {
-        return 4;
+        return 120;
     }
 
     public static int getMinValue()  {
@@ -42,7 +42,7 @@ public class DisplayColorCalibration {
     }
 
     public static int getDefValue() {
-        return 2;
+        return 60;
     }
 
     public static String getCurColors()  {
