@@ -117,3 +117,12 @@ BOARD_SEPOLICY_UNION += \
         ueventd.te \
         wpa.te \
         wpa_socket.te
+
+# Offmode charging
+#
+# First we override the define to use lpm.rc, as it causes problems
+# with kitkat bootloaders. Then we define the command line to indicate
+# when power off charging is activated.
+BOARD_CHARGING_MODE_BOOTING_LPM :=
+BOARD_CHARGING_CMDLINE_NAME := "androidboot.bootchg"
+BOARD_CHARGING_CMDLINE_VALUE := "true"
