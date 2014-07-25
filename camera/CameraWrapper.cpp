@@ -97,12 +97,6 @@ static int check_vendor_module()
 }
 
 const static char * iso_values[] = {"auto,"
-#ifdef ISO_MODE_50
-"ISO50,"
-#endif
-#ifdef ISO_MODE_HJR
-"ISO_HJR,"
-#endif
 "ISO100,ISO200,ISO400,ISO800"
 #ifdef ISO_MODE_1600
 ",ISO1600"
@@ -115,17 +109,11 @@ static char * camera_fixup_getparams(int id, const char * settings)
     params.unflatten(android::String8(settings));
 
     // fix params here
-#ifdef QCOM_HARDWARE
     params.set(android::CameraParameters::KEY_SUPPORTED_ISO_MODES, iso_values[id]);
-#endif
 #ifdef PREVIEW_SIZE_FIXUP
     params.set(android::CameraParameters::KEY_PREFERRED_PREVIEW_SIZE_FOR_VIDEO, id ? "640x480" : "800x480");
 #endif
-#ifdef VIDEO_PREVIEW_ALWAYS_MAX
-    params.set(android::CameraParameters::KEY_PREFERRED_PREVIEW_SIZE_FOR_VIDEO, "1920x1080");
-#endif
 
-#ifdef DISABLE_FACE_DETECTION
 #ifndef DISABLE_FACE_DETECTION_BOTH_CAMERAS
     /* Disable face detection for front facing camera */
     if(id == 1) {
@@ -136,7 +124,6 @@ static char * camera_fixup_getparams(int id, const char * settings)
         params.set(android::CameraParameters::KEY_SUPPORTED_FACE_DETECTION, "off");
 #ifndef DISABLE_FACE_DETECTION_BOTH_CAMERAS
     }
-#endif
 #endif
 
     android::String8 strParams = params.flatten();
@@ -166,7 +153,6 @@ char * camera_fixup_setparams(struct camera_device * device, const char * settin
 
     // fix params here
     // No need to fix-up ISO_HJR, it is the same for userspace and the camera lib
-#ifdef QCOM_HARDWARE
     if(params.get("iso")) {
         const char* isoMode = params.get(android::CameraParameters::KEY_ISO_MODE);
         if(strcmp(isoMode, "ISO100") == 0)
@@ -182,9 +168,7 @@ char * camera_fixup_setparams(struct camera_device * device, const char * settin
         else if(strcmp(isoMode, "ISO50") == 0)
             params.set(android::CameraParameters::KEY_ISO_MODE, "50");
     }
-#endif
 
-#ifdef DISABLE_FACE_DETECTION
 #ifndef DISABLE_FACE_DETECTION_BOTH_CAMERAS
     /* Disable face detection for front facing camera */
     if(id == 1) {
@@ -195,7 +179,6 @@ char * camera_fixup_setparams(struct camera_device * device, const char * settin
         params.set(android::CameraParameters::KEY_SUPPORTED_FACE_DETECTION, "off");
 #ifndef DISABLE_FACE_DETECTION_BOTH_CAMERAS
     }
-#endif
 #endif
 
 #ifdef SAMSUNG_CAMERA_MODE
@@ -221,19 +204,8 @@ char * camera_fixup_setparams(struct camera_device * device, const char * settin
     }
 #endif
 #ifdef ENABLE_ZSL
-#ifdef DISABLE_ZSL_FOR_FFC
-    if (id != 1) {
-#endif
         params.set(android::CameraParameters::KEY_ZSL, isVideo ? "off" : "on");
         params.set(android::CameraParameters::KEY_CAMERA_MODE, isVideo ? "0" : "1");
-#ifdef MAGIC_ZSL_1508
-        if (!isVideo) {
-            camera_send_command(device, 1508, 0, 0);
-        }
-#endif
-#ifdef DISABLE_ZSL_FOR_FFC
-    }
-#endif
 #endif
 
     android::String8 strParams = params.flatten();
