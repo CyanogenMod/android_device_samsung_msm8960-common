@@ -46,6 +46,10 @@ endif
 ifeq ($(TARGET_VIDEO_PREVIEW_ALWAYS_MAX),true)
     LOCAL_CFLAGS += -DVIDEO_PREVIEW_ALWAYS_MAX
 endif
+
+ifeq ($(TARGET_DISABLE_ZSL_FOR_FFC),true)
+    LOCAL_CFLAGS += -DDISABLE_ZSL_FOR_FFC
+endif
 LOCAL_SRC_FILES := \
     CameraWrapper.cpp
 
