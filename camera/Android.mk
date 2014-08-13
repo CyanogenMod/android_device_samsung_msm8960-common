@@ -27,6 +27,10 @@ ifeq ($(TARGET_ADD_ISO_MODE_1600),true)
     LOCAL_CFLAGS += -DISO_MODE_1600
 endif
 
+ifeq ($(TARGET_NEED_EXPOSURE_HACK),true)
+    LOCAL_CFLAGS += -DEXPOSURE_HACK
+endif
+
 LOCAL_SRC_FILES := \
     CameraWrapper.cpp
 
