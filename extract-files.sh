@@ -15,10 +15,18 @@ function extract() {
             mkdir -p $2/$DIR
         fi
         # Try CM target first
-        adb pull /system/$DEST $2/$DEST
+        if [ "$SOURCEDIR" != "" ]; then
+            cp /$SOURCEDIR/$DEST $2/$DEST
+        else
+            adb pull /system/$DEST $2/$DEST
+        fi
         # if file does not exist try OEM target
         if [ "$?" != "0" ]; then
-            adb pull /system/$FILE $2/$DEST
+            if [ "$SOURCEDIR" != "" ]; then
+                cp /$SOURCEDIR/$FILE $2/$DEST
+            else
+                adb pull /system/$FILE $2/$DEST
+            fi
         fi
     done
 }
