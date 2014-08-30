@@ -185,6 +185,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     fstab.qcom \
     init.crda.sh \
+    init.led.sh \
     init.qcom.rc \
     init.qcom.usb.rc \
     ueventd.qcom.rc
