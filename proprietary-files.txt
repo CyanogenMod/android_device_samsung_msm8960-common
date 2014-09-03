@@ -1,0 +1,117 @@
+# CPU
+bin/mpdecision
+bin/thermald
+lib/libqc-opt.so
+
+# Audio
+lib/libacdbloader.so
+lib/libaudcal.so
+lib/libcsd-client.so
+
+# Camera
+bin/mm-qcamera-daemon
+lib/libmmjpeg.so
+lib/libmmstillomx.so
+lib/libimage-jpeg-enc-omx-comp.so
+lib/libvdis.so
+lib/libsecnativefeature.so
+lib/libgemini.so
+lib/libmmmpod.so
+lib/libmmstereo.so
+lib/libmmcamera_faceproc.so
+lib/libmmcamera_frameproc.so
+lib/libmmcamera_statsproc30.so
+
+# Camera firmware
+cameradata/SlimISP_GC.bin
+cameradata/SlimISP_GD.bin
+cameradata/SlimISP_GE.bin
+cameradata/SlimISP_GH.bin
+cameradata/SlimISP_JH.bin
+cameradata/SlimISP_PH.bin
+cameradata/SlimISP_WH.bin
+cameradata/SlimISP_ZC.bin
+cameradata/SlimISP_ZD.bin
+cameradata/SlimISP_ZE.bin
+cameradata/SlimISP_ZH.bin
+cameradata/datapattern_420sp.yuv
+cameradata/datapattern_front_420sp.yuv
+
+# GPU
+lib/egl/eglsubAndroid.so
+lib/egl/libEGL_adreno200.so
+lib/egl/libGLESv1_CM_adreno200.so
+lib/egl/libGLESv2_adreno200.so
+lib/egl/libGLESv2S3D_adreno200.so
+lib/egl/libq3dtools_adreno200.so
+lib/libc2d2_z180.so
+lib/libC2D2.so
+lib/libCB.so
+lib/libgsl.so
+lib/libOpenCL.so
+lib/libOpenVG.so
+lib/libsc-a2xx.so
+
+# GPU firmware
+etc/firmware/a225p5_pm4.fw
+etc/firmware/a225_pfp.fw
+etc/firmware/a225_pm4.fw
+etc/firmware/leia_pfp_470.fw
+etc/firmware/leia_pm4_470.fw
+etc/firmware/a225p5_pm4.fw
+etc/firmware/vidc_1080p.fw
+
+# GPS
+lib/libgeofence.so
+lib/libloc_api_v02.so
+
+# Media
+lib/libdivxdrm.so
+lib/libdivxdrmdecrypt.so
+lib/libExtendedExtractor.so
+lib/libI420colorconvert.so
+lib/libmm-color-convertor.so
+lib/libmmparser.so
+lib/libmmosal.so
+lib/libwvm.so
+
+# NFC
+lib/hw/nfc.msm8960.so
+
+# QMI
+lib/libidl.so
+lib/libqcci_legacy.so
+lib/libqdi.so
+lib/libqdp.so
+lib/libqmi.so
+lib/libqmi_cci.so
+lib/libqmi_common_so.so
+lib/libqmi_csi.so
+lib/libqmi_encdec.so
+lib/libqmi_client_qmux.so
+lib/libqmiservices.so
+vendor/lib/libdiag.so
+
+# Radio
+bin/netmgrd
+bin/radish
+bin/qmuxd
+bin/rmt_storage
+bin/rild
+lib/libatparser.so
+lib/libdsutils.so
+lib/libdsi_netctrl.so
+lib/libfactoryutil.so
+lib/libnetmgr.so
+lib/libomission_avoidance.so
+lib/libreference-ril.so
+lib/libril-qcril-hook-oem.so
+lib/libsecril-client.so
+
+# Sensors
+lib/libakmd.so
+lib/libinvensense_hal.so
+lib/libmllite.so
+lib/libmlplatform.so
+lib/libmplmpu.so
+lib/libyamaha.so
