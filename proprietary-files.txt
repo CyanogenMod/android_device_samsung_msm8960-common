@@ -62,6 +62,8 @@ etc/firmware/a225p5_pm4.fw
 etc/firmware/vidc_1080p.fw
 
 # GPS
+bin/irsc_util
+etc/sec_config
 lib/libloc_api_v02.so
 vendor/lib/libgeofence.so
 vendor/lib/libizat_core.so
