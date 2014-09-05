@@ -62,8 +62,11 @@ etc/firmware/a225p5_pm4.fw
 etc/firmware/vidc_1080p.fw
 
 # GPS
-lib/libgeofence.so
 lib/libloc_api_v02.so
+vendor/lib/libgeofence.so
+vendor/lib/libizat_core.so
+vendor/lib/liblbs_core.so
+vendor/lib/liblocationservice.so
 
 # Media
 lib/libdivxdrm.so
