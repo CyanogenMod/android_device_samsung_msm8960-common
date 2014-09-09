@@ -15,8 +15,6 @@
 # inherit from qcom-common
 -include device/samsung/qcom-common/BoardConfigCommon.mk
 
-TARGET_SPECIFIC_HEADER_PATH := device/samsung/msm8960-common/include
-
 # Platform
 TARGET_BOARD_PLATFORM := msm8960
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno200
@@ -62,9 +60,6 @@ TARGET_DISPLAY_INSECURE_MM_HEAP := true
 TARGET_DISPLAY_USE_RETIRE_FENCE := true
 TARGET_NO_INITLOGO := true
 TARGET_QCOM_DISPLAY_VARIANT := caf
-
-# GPS
-TARGET_NO_RPC := true
 
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
