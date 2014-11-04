@@ -1,39 +1,11 @@
-# CPU
-bin/mpdecision
-bin/thermald
-lib/libqc-opt.so
-
-# Audio
-lib/libacdbloader.so
-lib/libaudcal.so
-lib/libcsd-client.so
-
 # Camera
 bin/mm-qcamera-daemon
-lib/libmmjpeg.so
-lib/libmmstillomx.so
-lib/libimage-jpeg-enc-omx-comp.so
-lib/libvdis.so
 lib/libsecnativefeature.so
-lib/libgemini.so
 lib/libmmmpod.so
 lib/libmmstereo.so
 lib/libmmcamera_faceproc.so
-lib/libmmcamera_frameproc.so
-lib/libmmcamera_statsproc30.so
 
 # Camera firmware
-cameradata/SlimISP_GC.bin
-cameradata/SlimISP_GD.bin
-cameradata/SlimISP_GE.bin
-cameradata/SlimISP_GH.bin
-cameradata/SlimISP_JH.bin
-cameradata/SlimISP_PH.bin
-cameradata/SlimISP_WH.bin
-cameradata/SlimISP_ZC.bin
-cameradata/SlimISP_ZD.bin
-cameradata/SlimISP_ZE.bin
-cameradata/SlimISP_ZH.bin
 cameradata/datapattern_420sp.yuv
 cameradata/datapattern_front_420sp.yuv
 
@@ -64,30 +36,12 @@ etc/firmware/vidc_1080p.fw
 # Media
 lib/libdivxdrm.so
 lib/libdivxdrmdecrypt.so
-lib/libExtendedExtractor.so
 lib/libI420colorconvert.so
 lib/libmm-color-convertor.so
 lib/libmmparser.so
 lib/libmmosal.so
 lib/libwvm.so
 
-# NFC
-lib/hw/nfc.msm8960.so
-
-# QMI
-lib/libqdi.so
-lib/libqdp.so
-lib/libqmi_client_qmux.so
-vendor/lib/libdiag.so
-
-# Radio
-bin/radish
-lib/libcordon.so
-
 # Sensors
-lib/libakmd.so
-lib/libinvensense_hal.so
-lib/libmllite.so
-lib/libmlplatform.so
 lib/libmplmpu.so
 lib/libyamaha.so
