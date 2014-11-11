@@ -63,6 +63,9 @@ TARGET_DISPLAY_INSECURE_MM_HEAP := true
 TARGET_DISPLAY_USE_RETIRE_FENCE := true
 TARGET_NO_INITLOGO := true
 
+# Includes
+TARGET_SPECIFIC_HEADER_PATH += device/samsung/msm8960-common/include
+
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
 
