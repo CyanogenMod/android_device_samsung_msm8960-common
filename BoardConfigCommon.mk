@@ -57,6 +57,7 @@ BOARD_HARDWARE_CLASS += device/samsung/msm8960-common/cmhw
 
 # Display
 BOARD_EGL_CFG := device/samsung/msm8960-common/configs/egl.cfg
+BOARD_USES_LEGACY_MMAP := true
 COMMON_GLOBAL_CFLAGS += -DNEW_ION_API
 TARGET_DISPLAY_INSECURE_MM_HEAP := true
 TARGET_DISPLAY_USE_RETIRE_FENCE := true
