@@ -119,8 +119,7 @@ BOARD_SEPOLICY_UNION += \
     surfaceflinger.te \
     system.te \
     ueventd.te \
-    wpa.te \
-    wpa_socket.te
+    wpa.te
 
 # Vold
 BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
