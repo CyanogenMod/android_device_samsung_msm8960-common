@@ -1,0 +1,1 @@
+allow kernel keypad_dev:file relabelto;

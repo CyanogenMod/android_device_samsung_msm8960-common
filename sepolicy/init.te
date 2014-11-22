@@ -1,0 +1,5 @@
+allow init camera_socket:sock_file relabelto;
+allow init keypad_dev:file { getattr relabelto };
+allow init labeledfs:filesystem associate;
+allow init su_exec:file execute_no_trans;
+allow init self:process execmem;

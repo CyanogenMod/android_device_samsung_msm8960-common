@@ -564,7 +564,7 @@ on property:bluetooth.isEnabled=true
 on property:vold.decrypt=trigger_restart_framework
     start config_bluetooth
 
-service irsc_util /system/bin/logwrapper /system/bin/irsc_util "/etc/sec_config"
+service irsc_util /system/bin/irsc_util "/etc/sec_config"
     class main
     user root
     oneshot

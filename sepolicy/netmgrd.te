@@ -1,0 +1,3 @@
+allow netmgrd self:process execmem;
+allow netmgrd netmgrd:packet_socket { bind create read write };
+allow netmgrd radio_data_file:dir { search };

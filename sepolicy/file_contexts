@@ -1,0 +1,12 @@
+/system/bin/macloader		u:object_r:macloader_exec:s0
+/system/bin/orientationd	u:object_r:orientationd_exec:s0
+
+/dev/timerirq			u:object_r:timerirq_dev:s0
+/dev/kgsl-2d(.*)		u:object_r:graphics_device:s0
+/dev/block/mmcblk0(.*)		u:object_r:mmc_block_device:s0
+/dev/audience_a2220		u:object_r:audio_device:s0
+
+/data/cam_socket(.*)		u:object_r:camera_socket:s0
+/data/system/default_values	u:object_r:mpctl_data_file:s0
+
+/sys/devices/virtual/sec/sec_touchkey/keypad_enable	u:object_r:keypad_dev:s0
