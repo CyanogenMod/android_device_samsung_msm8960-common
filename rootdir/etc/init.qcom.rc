@@ -945,21 +945,11 @@ service qrngd /system/bin/qrngd -f
     user root
     group root
 
-service efsrestorecon /system/bin/restorecon -R /efs
-    class late_start
-    user root
-    group root
-    disabled
-    oneshot
-
 # Start kickstart if mdm is detected
 on property:ro.baseband=mdm
     mkdir /data/qcks 0770 system system
     start kickstart
     start qmuxd
-
-on property:init.svc.bootanim=stopped
-    start efsrestorecon
 
 # boot completed
 on property:dev.bootcomplete=1
