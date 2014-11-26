@@ -947,11 +947,6 @@ service kickstart /system/bin/qcks -i /firmware-mdm/image/
     oneshot
     disabled
 
-service qrngd /system/bin/qrngd -f
-    class main
-    user root
-    group root
-
 # Start kickstart if mdm is detected
 on property:ro.baseband=mdm
     mkdir /data/qcks 0770 system system
