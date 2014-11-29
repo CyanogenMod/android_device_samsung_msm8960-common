@@ -569,20 +569,13 @@ service irsc_util /system/bin/logwrapper /system/bin/irsc_util "/etc/sec_config"
     user root
     oneshot
 
-# Leaving this for now, feel free to remove once you've moved to rmt_storage2
 service rmt_storage /system/bin/rmt_storage
-    class core
-    user root
-    disabled
-
-service rmt_storage2 /system/bin/rmt_storage2
     class core
     user root
     disabled
 
 on property:ro.boot.emmc=true
     start rmt_storage
-    start rmt_storage2
 
 service bridgemgrd /system/bin/bridgemgrd
     class late_start
