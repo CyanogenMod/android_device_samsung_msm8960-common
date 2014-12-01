@@ -103,24 +103,15 @@ key 80    NUMPAD_2
 key 81    NUMPAD_3
 key 82    NUMPAD_0
 key 83    NUMPAD_DOT
-# key 84 (undefined)
-# key 85 "KEY_ZENKAKUHANKAKU"
 key 86    BACKSLASH
 key 87    F11
 key 88    F12
-# key 89 "KEY_RO"
-# key 90 "KEY_KATAKANA"
-# key 91 "KEY_HIRAGANA"
-# key 92 "KEY_HENKAN"
-# key 93 "KEY_KATAKANAHIRAGANA"
-# key 94 "KEY_MUHENKAN"
 key 95    NUMPAD_COMMA
 key 96    NUMPAD_ENTER
 key 97    CTRL_RIGHT
 key 98    NUMPAD_DIVIDE
 key 99    SYSRQ
 key 100   ALT_GR
-# key 101 "KEY_LINEFEED"
 key 102   MOVE_HOME
 key 103   DPAD_UP
 key 104   PAGE_UP
@@ -131,54 +122,23 @@ key 108   DPAD_DOWN
 key 109   PAGE_DOWN
 key 110   INSERT
 key 111   FORWARD_DEL
-# key 112 "KEY_MACRO"
 key 113   MUTE
 key 114   VOLUME_DOWN
 key 115   VOLUME_UP
-key 116   POWER             WAKE
+key 116   POWER
 key 117   NUMPAD_EQUALS
-# key 118 "KEY_KPPLUSMINUS"
 key 119   BREAK
-# key 120 (undefined)
 key 121   NUMPAD_COMMA
-# key 122 "KEY_HANGEUL"
-# key 123 "KEY_HANJA"
-# key 124 "KEY_YEN"
 key 125   META_LEFT
 key 126   META_RIGHT
-key 127   MENU              WAKE_DROPPED
+key 127   MENU
 key 128   MEDIA_STOP
-# key 129 "KEY_AGAIN"
-# key 130 "KEY_PROPS"
-# key 131 "KEY_UNDO"
-# key 132 "KEY_FRONT"
-# key 133 "KEY_COPY"
-# key 134 "KEY_OPEN"
-# key 135 "KEY_PASTE"
-# key 136 "KEY_FIND"
-# key 137 "KEY_CUT"
-# key 138 "KEY_HELP"
-key 139   MENU              WAKE_DROPPED
-# key 140 "KEY_CALC"
-# key 141 "KEY_SETUP"
-# key 142 "KEY_SLEEP"
-# key 143 "KEY_WAKEUP"
-# key 144 "KEY_FILE"
-# key 145 "KEY_SENDFILE"
-# key 146 "KEY_DELETEFILE"
-# key 147 "KEY_XFER"
-# key 148 "KEY_PROG1"
-# key 149 "KEY_PROG2"
+key 139   MENU
 key 150   EXPLORER
-# key 151 "KEY_MSDOS"
-# key 152 "KEY_COFFEE"
-key 152 POWER                WAKE
-# key 153 "KEY_DIRECTION"
-# key 154 "KEY_CYCLEWINDOWS"
+key 152   POWER
 key 155   EMAIL
 key 156   BOOKMARK
-# key 157 "KEY_COMPUTER"
-key 158   BACK              WAKE_DROPPED
+key 158   BACK
 key 159   FORWARD
 key 160   MEDIA_CLOSE
 key 161   MEDIA_EJECT
@@ -190,60 +150,18 @@ key 166   MEDIA_STOP
 key 167   MEDIA_RECORD
 key 168   MEDIA_REWIND
 key 169   CALL
-# key 170 "KEY_ISO"
-# key 171 "KEY_CONFIG"
 key 172   HOME
-# key 173 "KEY_REFRESH"
-# key 174 "KEY_EXIT"
-# key 175 "KEY_MOVE"
-# key 176 "KEY_EDIT"
 key 177   PAGE_UP
 key 178   PAGE_DOWN
 key 179   NUMPAD_LEFT_PAREN
 key 180   NUMPAD_RIGHT_PAREN
-# key 181 "KEY_NEW"
-# key 182 "KEY_REDO"
-# key 183   F13
-# key 184   F14
-# key 185   F15
-# key 186   F16
-# key 187   F17
-# key 188   F18
-# key 189   F19
-# key 190   F20
-# key 191   F21
-# key 192   F22
-# key 193   F23
-# key 194   F24
-# key 195 (undefined)
-# key 196 (undefined)
-# key 197 (undefined)
-# key 198 (undefined)
-# key 199 (undefined)
 key 200   MEDIA_PLAY
 key 201   MEDIA_PAUSE
-# key 202 "KEY_PROG3"
-# key 203 "KEY_PROG4"
-# key 204 (undefined)
-# key 205 "KEY_SUSPEND"
-# key 206 "KEY_CLOSE"
 key 207   MEDIA_PLAY
 key 208   MEDIA_FAST_FORWARD
-# key 209 "KEY_BASSBOOST"
-# key 210 "KEY_PRINT"
-# key 211 "KEY_HP"
 key 212   CAMERA
-# key 213 "KEY_SOUND"
-# key 214 "KEY_QUESTION"
 key 215   ENVELOPE
-# key 216 "KEY_CHAT"
 key 217   SEARCH
-# key 218 "KEY_CONNECT"
-# key 219 "KEY_FINANCE"
-# key 220 "KEY_SPORT"
-# key 221 "KEY_SHOP"
-# key 222 "KEY_ALTERASE"
-# key 223 "KEY_CANCEL"
 key 224   BRIGHTNESS_DOWN
 key 225   BRIGHTNESS_UP
 key 226   HEADSETHOOK
@@ -254,14 +172,6 @@ key 230   SOFT_RIGHT
 key 231   CALL
 key 232   DPAD_CENTER
 key 233   HEADSETHOOK
-# key 234 "KEY_0_5" or "KEY_SAVE"
-# key 235 "KEY_2_5" or "KEY_DOCUMENTS"
-# key 236 "KEY_SWITCHVIDEOMODE" or "KEY_BATTERY"
-# key 237 "KEY_KBDILLUMTOGGLE"
-# key 238 "KEY_KBDILLUMDOWN"
-# key 239 "KEY_KBDILLUMUP"
-# key 240 "KEY_UNKNOWN"
-
 
 key 304   BUTTON_A
 key 305   BUTTON_B
@@ -279,79 +189,12 @@ key 316   BUTTON_MODE
 key 317   BUTTON_THUMBL
 key 318   BUTTON_THUMBR
 
-
-# key 352 "KEY_OK"
-# key 353 "KEY_SELECT"
-# key 354 "KEY_GOTO"
-# key 355 "KEY_CLEAR"
-# key 356 "KEY_POWER2"
-# key 357 "KEY_OPTION"
-# key 358 "KEY_INFO"
-# key 359 "KEY_TIME"
-# key 360 "KEY_VENDOR"
-# key 361 "KEY_ARCHIVE"
 key 362   GUIDE
-# key 363 "KEY_CHANNEL"
-# key 364 "KEY_FAVORITES"
-# key 365 "KEY_EPG"
 key 366   DVR
-# key 367 "KEY_MHP"
-# key 368 "KEY_LANGUAGE"
-key 368 LANG
-# key 369 "KEY_TITLE"
-# key 370 "KEY_SUBTITLE"
-# key 371 "KEY_ANGLE"
-# key 372 "KEY_ZOOM"
-# key 373 "KEY_MODE"
-# key 374 "KEY_KEYBOARD"
-# key 375 "KEY_SCREEN"
-# key 376 "KEY_PC"
+key 368   LANG
 key 377   TV
-# key 378 "KEY_TV2"
-# key 379 "KEY_VCR"
-# key 380 "KEY_VCR2"
-# key 381 "KEY_SAT"
-# key 382 "KEY_SAT2"
-# key 383 "KEY_CD"
-# key 384 "KEY_TAPE"
-# key 385 "KEY_RADIO"
-# key 386 "KEY_TUNER"
-# key 387 "KEY_PLAYER"
-# key 388 "KEY_TEXT"
-# key 389 "KEY_DVD"
-# key 390 "KEY_AUX"
-# key 391 "KEY_MP3"
-# key 392 "KEY_AUDIO"
-# key 393 "KEY_VIDEO"
-# key 394 "KEY_DIRECTORY"
-# key 395 "KEY_LIST"
-# key 396 "KEY_MEMO"
-# key 397 "KEY_CALENDAR"
-# key 398 "KEY_RED"
-# key 399 "KEY_GREEN"
-# key 400 "KEY_YELLOW"
-# key 401 "KEY_BLUE"
 key 402   CHANNEL_UP
 key 403   CHANNEL_DOWN
-# key 404 "KEY_FIRST"
-# key 405 "KEY_LAST"
-# key 406 "KEY_AB"
-# key 407 "KEY_NEXT"
-# key 408 "KEY_RESTART"
-# key 409 "KEY_SLOW"
-# key 410 "KEY_SHUFFLE"
-# key 411 "KEY_BREAK"
-# key 412 "KEY_PREVIOUS"
-# key 413 "KEY_DIGITS"
-# key 414 "KEY_TEEN"
-# key 415 "KEY_TWEN"
-
-
-# key 448 "KEY_DEL_EOL"
-# key 449 "KEY_DEL_EOS"
-# key 450 "KEY_INS_LINE"
-# key 451 "KEY_DEL_LINE"
-
 
 key 464   FUNCTION
 key 465   ESCAPE            FUNCTION
@@ -374,17 +217,6 @@ key 481   E                 FUNCTION
 key 482   F                 FUNCTION
 key 483   S                 FUNCTION
 key 484   B                 FUNCTION
-
-
-# key 497 KEY_BRL_DOT1
-# key 498 KEY_BRL_DOT2
-# key 499 KEY_BRL_DOT3
-# key 500 KEY_BRL_DOT4
-# key 501 KEY_BRL_DOT5
-# key 502 KEY_BRL_DOT6
-# key 503 KEY_BRL_DOT7
-# key 504 KEY_BRL_DOT8
-
 
 key 704 RECENTAPPS
 key 705 APPLICATION
