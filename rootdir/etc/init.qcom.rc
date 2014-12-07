@@ -314,6 +314,7 @@ on post-fs-data
     # Color Calibration
     chown root system /sys/class/misc/gammacontrol/tuner
     chmod 0664 /sys/class/misc/gammacontrol/tuner
+    restorecon /sys/class/misc/gammacontrol/tuner
 
     #Create the symlink to qcn wpa_supplicant folder for ar6000 wpa_supplicant
     mkdir /data/system 0775 system system
