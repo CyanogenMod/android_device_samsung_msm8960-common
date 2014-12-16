@@ -1,1 +1,3 @@
 allow kernel keypad_dev:file relabelto;
+allow kernel panel_dev:file relabelto;
+allow kernel power_dev:file relabelto;

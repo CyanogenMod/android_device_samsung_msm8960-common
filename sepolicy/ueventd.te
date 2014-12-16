@@ -1,4 +1,6 @@
 allow ueventd keypad_dev:file getattr;
+allow ueventd panel_dev:file relabelto;
+allow ueventd power_dev:file relabelto;
 allow ueventd vfat:dir search;
 allow ueventd vfat:file r_file_perms;
 allow ueventd unlabeled:dir search;

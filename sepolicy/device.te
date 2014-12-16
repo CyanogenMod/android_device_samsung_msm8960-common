@@ -1,2 +1,4 @@
 type keypad_dev, dev_type;
+type panel_dev, dev_type;
+type power_dev, dev_type;
 type timerirq_dev, dev_type;

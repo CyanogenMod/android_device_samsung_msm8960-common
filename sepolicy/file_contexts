@@ -11,3 +11,6 @@
 
 /sys/class/misc/gammacontrol/tuner	u:object_r:gamma_dev:s0
 /sys/devices/virtual/sec/sec_touchkey/keypad_enable	u:object_r:keypad_dev:s0
+
+/sys/devices/virtual/timed_output/vibrator/pwm_value	u:object_r:power_dev:s0
+/sys/devices/platform/mipi_samsung_oled.513/lcd/panel/power_reduce	u:object_r:panel_dev:s0
