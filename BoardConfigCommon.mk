@@ -121,7 +121,9 @@ BOARD_SEPOLICY_UNION += \
     mpdecision.te \
     netmgrd.te \
     orientationd.te \
+    panel_dev.te \
     platform_app.te \
+    power_dev.te \
     qmuxd.te \
     rild.te \
     rmt_storage.te \
