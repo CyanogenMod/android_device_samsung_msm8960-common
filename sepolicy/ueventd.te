@@ -1,7 +1,5 @@
 allow ueventd keypad_dev:file getattr;
 allow ueventd panel_dev:file { getattr relabelto };
 allow ueventd power_dev:file { getattr relabelto };
-allow ueventd vfat:dir search;
-allow ueventd vfat:file r_file_perms;
 allow ueventd unlabeled:dir search;
 allow ueventd unlabeled:file { read open getattr };
