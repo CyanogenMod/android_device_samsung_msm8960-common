@@ -70,7 +70,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.data_netmgrd_nint=16 \
     persist.radio.add_power_save=1 \
-    persist.radio.apm_sim_not_pwdn=1 \
     persist.radio.mode_pref_nv10=1 \
     persist.radio.no_wait_for_card=0
 
