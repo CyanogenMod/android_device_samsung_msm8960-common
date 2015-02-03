@@ -893,6 +893,7 @@ on charger
 service charger /charger
     class charger
     critical
+    seclabel u:r:healthd:s0
 
 # start camera server as daemon
 service qcamerasvr /system/bin/mm-qcamera-daemon
