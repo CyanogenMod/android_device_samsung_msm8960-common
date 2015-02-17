@@ -1,6 +1,4 @@
-allow system_app gamma_dev:file rw_file_perms;
 allow system_app graphics_device:chr_file rw_file_perms;
-allow system_app keypad_dev:file rw_file_perms;
 allow system_app panel_dev:file rw_file_perms;
 allow system_app power_dev:file rw_file_perms;
 allow system_app shell_data_file:dir { search };
