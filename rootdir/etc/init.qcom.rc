@@ -206,6 +206,9 @@ on boot
 on fs
     mount_all fstab.qcom
 
+    # Enable zRAM
+    swapon_all /fstab.qcom
+
     chown system radio /efs
     chmod 0771 /efs
     restorecon_recursive /efs
