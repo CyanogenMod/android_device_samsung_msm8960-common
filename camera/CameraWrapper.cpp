@@ -137,6 +137,12 @@ static char * camera_fixup_getparams(int id, const char * settings)
     }
 #endif
 
+    /* Remove video-size, d2 doesn't support separate video stream */
+    params.remove(android::CameraParameters::KEY_VIDEO_SIZE);
+
+    /* Sure, it's supported, but not here */
+    params.set(android::CameraParameters::KEY_VIDEO_SNAPSHOT_SUPPORTED, "false");
+
     android::String8 strParams = params.flatten();
     char *ret = strdup(strParams.string());
 
@@ -144,7 +150,12 @@ static char * camera_fixup_getparams(int id, const char * settings)
     return ret;
 }
 
+#ifdef SAMSUNG_CAMERA_MODE
 static bool wasVideo = false;
+#endif
+#ifndef DISABLE_AUTOFOCUS
+static bool CAF = false;
+#endif
 
 char * camera_fixup_setparams(struct camera_device * device, const char * settings)
 {
@@ -175,8 +186,6 @@ char * camera_fixup_setparams(struct camera_device * device, const char * settin
             params.set(android::CameraParameters::KEY_ISO_MODE, "800");
         else if(strcmp(isoMode, "ISO1600") == 0)
             params.set(android::CameraParameters::KEY_ISO_MODE, "1600");
-        else if(strcmp(isoMode, "ISO50") == 0)
-            params.set(android::CameraParameters::KEY_ISO_MODE, "50");
     }
 
 #ifndef DISABLE_FACE_DETECTION_BOTH_CAMERAS
@@ -190,6 +199,12 @@ char * camera_fixup_setparams(struct camera_device * device, const char * settin
 #ifndef DISABLE_FACE_DETECTION_BOTH_CAMERAS
     }
 #endif
+
+    // Don't send mangled ISO modes pref back to the camera firmware
+    params.remove(android::CameraParameters::KEY_SUPPORTED_ISO_MODES);
+
+    /* Remove video-size, d2 doesn't support separate video stream */
+    params.remove(android::CameraParameters::KEY_VIDEO_SIZE);
 
 #ifdef SAMSUNG_CAMERA_MODE
     /* Samsung camcorder mode */
@@ -216,6 +231,20 @@ char * camera_fixup_setparams(struct camera_device * device, const char * settin
 #ifdef ENABLE_ZSL
         params.set(android::CameraParameters::KEY_ZSL, isVideo ? "off" : "on");
         params.set(android::CameraParameters::KEY_CAMERA_MODE, isVideo ? "0" : "1");
+#endif
+
+#ifndef DISABLE_AUTOFOCUS
+    /* Are we in continuous focus mode? */
+    if (strcmp(params.get(android::CameraParameters::KEY_FOCUS_MODE), "infinity") &&
+       strcmp(params.get(android::CameraParameters::KEY_FOCUS_MODE), "fixed") && (id == 0)) {
+        if (strcmp(params.get(android::CameraParameters::KEY_FOCUS_MODE), "macro")) {
+            params.set(android::CameraParameters::KEY_FOCUS_MODE, "auto");
+        }
+        CAF = true;
+    } else {
+        /* Front camera or manually set infinity mode on rear cam */
+        CAF = false;
+    }
 #endif
 
     android::String8 strParams = params.flatten();
@@ -390,7 +419,10 @@ int camera_auto_focus(struct camera_device * device)
 
     if(!device)
         return -EINVAL;
-
+#ifndef DISABLE_AUTOFOCUS
+     if (CAF)
+         camera_send_command(device, 1552, 0, 0);
+#endif
 
     return VENDOR_CALL(device, auto_focus);
 }
@@ -409,8 +441,13 @@ int camera_cancel_auto_focus(struct camera_device * device)
      * Disabling it has no adverse effect. For others, only call cancel_auto_focus when the
      * preview is enabled. This is needed so some 3rd party camera apps don't lock up. */
 #ifndef DISABLE_AUTOFOCUS
-    if (camera_preview_enabled(device))
-        ret = VENDOR_CALL(device, cancel_auto_focus);
+    if (camera_preview_enabled(device)) {
+        if (!CAF) {
+        //ret = VENDOR_CALL(device, cancel_auto_focus);
+        } else {
+        camera_send_command(device, 1551, 0, 0);
+        }
+    }
 #endif
 
     return ret;
@@ -453,8 +490,13 @@ int camera_set_parameters(struct camera_device * device, const char *params)
     __android_log_write(ANDROID_LOG_VERBOSE, LOG_TAG, tmp);
 #endif
 
-    int ret = VENDOR_CALL(device, set_parameters, tmp);
-    return ret;
+   int ret = VENDOR_CALL(device, set_parameters, tmp);
+    if (ret) {
+        ALOGV("nardshu setparameters failed");
+        __android_log_write(ANDROID_LOG_VERBOSE, LOG_TAG, tmp);
+    }
+
+    return 0;
 }
 
 char* camera_get_parameters(struct camera_device * device)
@@ -499,6 +541,11 @@ int camera_send_command(struct camera_device * device,
 
     if(!device)
         return -EINVAL;
+
+    if(cmd == CAMERA_CMD_ENABLE_FOCUS_MOVE_MSG) {
+        ALOGV("nardshu: ignoring send_command CAMERA_CMD_ENABLE_FOCUS_MOVE_MSG");
+        return 0;
+    }
 
     return VENDOR_CALL(device, send_command, cmd, arg1, arg2);
 }
@@ -574,8 +621,9 @@ int camera_device_open(const hw_module_t* module, const char* name,
     int cameraid;
     wrapper_camera_device_t* camera_device = NULL;
     camera_device_ops_t* camera_ops = NULL;
+#ifdef SAMSUNG_CAMERA_MODE
     wasVideo = false;
-
+#endif
     android::Mutex::Autolock lock(gCameraWrapperLock);
 
     ALOGV("camera_device open");

@@ -63,10 +63,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.composition.type=dyn \
-    ro.opengles.version=131072
+    ro.opengles.version=131072 \
+    camera2.portability.force_api=1
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.sys.media.use-awesome=true
+    persist.sys.media.use-awesome=true \
+    media.stagefright.use-awesome=true
 
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.data_netmgrd_nint=16 \
