@@ -1,5 +1,5 @@
 allow system_server efs_file:dir search;
-allow system_server efs_file:file r_file_perms;
+allow system_server sensors_efs_file:file { read open };
 allow system_server gamma_dev:file rw_file_perms;
 allow system_server graphics_device:chr_file rw_file_perms;
 allow system_server keypad_dev:file rw_file_perms;

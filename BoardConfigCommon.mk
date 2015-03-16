@@ -104,6 +104,7 @@ BOARD_SEPOLICY_UNION += \
     file_contexts \
     gamma_dev.te \
     genfs_contexts \
+    hostapd.te \
     init_shell.te \
     kernel.te \
     keypad_dev.te \
@@ -111,12 +112,14 @@ BOARD_SEPOLICY_UNION += \
     mediaserver.te \
     mm-qcamerad.te \
     mpdecision.te \
+    netd.te \
     netmgrd.te \
     orientationd.te \
     panel_dev.te \
     platform_app.te \
     power_dev.te \
     qmuxd.te \
+    radio.te \
     rild.te \
     rmt_storage.te \
     surfaceflinger.te \
@@ -124,7 +127,6 @@ BOARD_SEPOLICY_UNION += \
     system_app.te \
     system_server.te \
     thermal-engine.te \
-    thermald.te \
     ueventd.te \
     vold.te \
     wpa.te
