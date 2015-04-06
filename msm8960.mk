@@ -186,7 +186,6 @@ PRODUCT_PACKAGES += \
 # Ramdisk
 PRODUCT_PACKAGES += \
     fstab.qcom \
-    init.crda.sh \
     init.led.sh \
     init.qcom.rc \
     init.qcom.usb.rc \
