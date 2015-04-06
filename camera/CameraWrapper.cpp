@@ -399,13 +399,13 @@ static int camera_set_parameters(struct camera_device *device,
 #ifdef ENABLE_ZSL
     params.set(CameraParameters::KEY_ZSL, isVideo ? "off" : "on");
     params.set(CameraParameters::KEY_CAMERA_MODE, isVideo ? "0" : "1");
+
+    /* Remove video-size, d2 doesn't support separate video stream */
+    params.remove(CameraParameters::KEY_VIDEO_SIZE);
 #endif
 
     // Don't send mangled ISO modes pref back to the camera firmware
     params.remove(CameraParameters::KEY_SUPPORTED_ISO_MODES);
-
-    /* Remove video-size, d2 doesn't support separate video stream */
-    params.remove(CameraParameters::KEY_VIDEO_SIZE);
 
 #ifndef DISABLE_AUTOFOCUS
     /* Are we in continuous focus mode? */
@@ -471,8 +471,10 @@ static char *camera_get_parameters(struct camera_device *device)
     }
 #endif
 
+#ifdef ENABLE_ZSL
     /* Remove video-size, d2 doesn't support separate video stream */
     params.remove(CameraParameters::KEY_VIDEO_SIZE);
+#endif
 
     /* Sure, it's supported, but not here */
     params.set(CameraParameters::KEY_VIDEO_SNAPSHOT_SUPPORTED, "false");
