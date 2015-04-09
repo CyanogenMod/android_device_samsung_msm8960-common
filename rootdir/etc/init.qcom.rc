@@ -474,6 +474,10 @@ on post-fs-data
     chown radio system /sys/class/lcd/panel/siop_enable
     chown radio system /sys/class/lcd/panel/temperature
 
+    # PCC
+    chown system system /sys/devices/virtual/graphics/fb0/rgb
+    chmod 0660 /sys/devices/virtual/graphics/fb0/rgb
+
     # permissions for NFC
     setprop ro.nfc.port "I2C"
     chmod 0600 /dev/pn544
