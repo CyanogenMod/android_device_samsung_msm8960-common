@@ -102,7 +102,6 @@ BOARD_SEPOLICY_UNION += \
     device.te \
     file.te \
     file_contexts \
-    gamma_dev.te \
     genfs_contexts \
     hostapd.te \
     init_shell.te \
