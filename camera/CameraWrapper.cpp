@@ -347,16 +347,19 @@ static int camera_set_parameters(struct camera_device *device,
 
     int id = CAMERA_ID(device);
 
+#ifdef LOG_PARAMETERS
+    ALOGV("Raw set_parameters");
+    __android_log_write(ANDROID_LOG_VERBOSE, LOG_TAG, settings);
+#endif
+
     CameraParameters params;
     params.unflatten(String8(settings));
 
     const char* camMode = params.get(CameraParameters::KEY_SAMSUNG_CAMERA_MODE);
 
-    // jactive device camera don't seem to have recording hint param, so read it safely
-    const char* recordingHint = params.get(CameraParameters::KEY_RECORDING_HINT);
     bool isVideo = false;
-    if (recordingHint)
-        isVideo = !strcmp(recordingHint, "true");
+    if (params.get(CameraParameters::KEY_RECORDING_HINT))
+        isVideo = !strcmp(params.get(CameraParameters::KEY_RECORDING_HINT), "true");
 
     // fix params here
     // No need to fix-up ISO_HJR, it is the same for userspace and the camera lib
@@ -420,6 +423,11 @@ static int camera_set_parameters(struct camera_device *device,
 
     String8 strParams = params.flatten();
 
+#ifdef LOG_PARAMETERS
+    ALOGV("Fixed set_parameters");
+    __android_log_write(ANDROID_LOG_VERBOSE, LOG_TAG, strParams);
+#endif
+
     return VENDOR_CALL(device, set_parameters, strParams);
 }
 
@@ -441,13 +449,19 @@ static char *camera_get_parameters(struct camera_device *device)
     int id = CAMERA_ID(device);
 
     char *parameters = VENDOR_CALL(device, get_parameters);
+
+#ifdef LOG_PARAMETERS
+    ALOGV("Raw get_parameters");
+    __android_log_write(ANDROID_LOG_VERBOSE, LOG_TAG, parameters);
+#endif
+
     wrapper_camera_device_t *wrapper = (wrapper_camera_device_t *)device;
 
     CameraParameters params;
     params.unflatten(String8(parameters));
 
     // fix params here
-    params.set(CameraParameters::KEY_SUPPORTED_ISO_MODES, iso_values[CAMERA_ID(device)]);
+    params.set(CameraParameters::KEY_SUPPORTED_ISO_MODES, iso_values[id]);
 
 #ifdef EXPOSURE_HACK
     params.set(CameraParameters::KEY_EXPOSURE_COMPENSATION_STEP, "0.5");
@@ -461,7 +475,7 @@ static char *camera_get_parameters(struct camera_device *device)
 
 #ifndef DISABLE_FACE_DETECTION_BOTH_CAMERAS
     /* Disable face detection for front facing camera */
-    if(CAMERA_ID(device) == FRONT_CAMERA_ID) {
+    if(id == FRONT_CAMERA_ID) {
 #endif
         params.set(CameraParameters::KEY_MAX_NUM_DETECTED_FACES_HW, "0");
         params.set(CameraParameters::KEY_MAX_NUM_DETECTED_FACES_SW, "0");
@@ -471,15 +485,10 @@ static char *camera_get_parameters(struct camera_device *device)
     }
 #endif
 
-#ifdef ENABLE_ZSL
-    /* Remove video-size, d2 doesn't support separate video stream */
-    params.remove(CameraParameters::KEY_VIDEO_SIZE);
-#endif
+    char *ret = strdup(params.flatten().string());
+    VENDOR_CALL(device, put_parameters, parameters);
 
-    /* Sure, it's supported, but not here */
-    params.set(CameraParameters::KEY_VIDEO_SNAPSHOT_SUPPORTED, "false");
-
-    return strdup(params.flatten().string());
+    return ret;
 }
 
 static void camera_put_parameters(struct camera_device *device, char *params)
