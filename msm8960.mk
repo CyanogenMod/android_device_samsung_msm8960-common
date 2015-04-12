@@ -67,10 +67,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     camera2.portability.force_api=1
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.sys.media.use-awesome=true \
-    media.stagefright.use-awesome=true
-
-PRODUCT_PROPERTY_OVERRIDES += \
     persist.data_netmgrd_nint=16 \
     persist.radio.add_power_save=1 \
     persist.radio.mode_pref_nv10=1 \
