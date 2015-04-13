@@ -1,5 +1,4 @@
 # Camera
-bin/mm-qcamera-daemon
 lib/libsecnativefeature.so
 lib/libmmmpod.so
 lib/libmmstereo.so
