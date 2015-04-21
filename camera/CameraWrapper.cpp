@@ -473,17 +473,10 @@ static char *camera_get_parameters(struct camera_device *device)
     params.set(CameraParameters::KEY_PREFERRED_PREVIEW_SIZE_FOR_VIDEO, id ? "640x480" : "800x480");
 #endif
 
-#ifndef DISABLE_FACE_DETECTION_BOTH_CAMERAS
-    /* Disable face detection for front facing camera */
-    if(id == FRONT_CAMERA_ID) {
-#endif
-        params.set(CameraParameters::KEY_MAX_NUM_DETECTED_FACES_HW, "0");
-        params.set(CameraParameters::KEY_MAX_NUM_DETECTED_FACES_SW, "0");
-        params.set(CameraParameters::KEY_FACE_DETECTION, "off");
-        params.set(CameraParameters::KEY_SUPPORTED_FACE_DETECTION, "off");
-#ifndef DISABLE_FACE_DETECTION_BOTH_CAMERAS
-    }
-#endif
+    params.set(CameraParameters::KEY_MAX_NUM_DETECTED_FACES_HW, "0");
+    params.set(CameraParameters::KEY_MAX_NUM_DETECTED_FACES_SW, "0");
+    params.set(CameraParameters::KEY_FACE_DETECTION, "off");
+    params.set(CameraParameters::KEY_SUPPORTED_FACE_DETECTION, "off");
 
     char *ret = strdup(params.flatten().string());
     VENDOR_CALL(device, put_parameters, parameters);
