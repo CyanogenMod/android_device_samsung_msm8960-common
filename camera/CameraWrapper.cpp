@@ -43,7 +43,7 @@ using namespace android;
 static Mutex gCameraWrapperLock;
 static camera_module_t *gVendorModule = 0;
 
-#ifndef DISABLE_AUTOFOCUS
+#ifdef DERP2
 static bool CAF = false;
 #endif
 
@@ -277,10 +277,6 @@ static int camera_auto_focus(struct camera_device *device)
 
     if (!device)
         return -EINVAL;
-#ifdef DERP2
-     if (CAF)
-         camera_send_command(device, 1552, 0, 0);
-#endif
 
     return VENDOR_CALL(device, auto_focus);
 }
@@ -352,10 +348,6 @@ static int camera_set_parameters(struct camera_device *device,
     CameraParameters2 params;
     params.unflatten(String8(settings));
 
-    bool isVideo = false;
-    if (params.get(CameraParameters::KEY_RECORDING_HINT))
-        isVideo = !strcmp(params.get(CameraParameters::KEY_RECORDING_HINT), "true");
-
     // fix params here
     // No need to fix-up ISO_HJR, it is the same for userspace and the camera lib
     if(params.get("iso")) {
@@ -373,6 +365,10 @@ static int camera_set_parameters(struct camera_device *device,
     }
 
 #ifdef DERP2
+    bool isVideo = false;
+    if (params.get(CameraParameters::KEY_RECORDING_HINT))
+        isVideo = !strcmp(params.get(CameraParameters::KEY_RECORDING_HINT), "true");
+
     if (id == FRONT_CAMERA_ID) {
         int camMode;
         if (params.get(CameraParameters::KEY_SAMSUNG_CAMERA_MODE)) {
@@ -387,12 +383,6 @@ static int camera_set_parameters(struct camera_device *device,
             params.set(CameraParameters::KEY_SAMSUNG_CAMERA_MODE, isVideo ? "1" : "0");
         }
     }
-
-    params.set(CameraParameters::KEY_ZSL, isVideo ? "off" : "on");
-    params.set(CameraParameters::KEY_CAMERA_MODE, isVideo ? "0" : "1");
-
-    /* Remove video-size, d2 doesn't support separate video stream */
-    params.remove(CameraParameters::KEY_VIDEO_SIZE);
 
     /* Are we in continuous focus mode? */
     if (strcmp(params.get(CameraParameters::KEY_FOCUS_MODE), "infinity") &&
