@@ -217,5 +217,6 @@
 /dev/ttyUSB0           0660   system     radio
 
 # wlan
+/dev/rfkill               0660   root       wifi
 /dev/wcnss_wlan           0660   system     system
 /dev/wcnss_ctrl           0660   system     system
