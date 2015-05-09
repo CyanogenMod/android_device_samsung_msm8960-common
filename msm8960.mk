@@ -162,8 +162,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml
 
-
-
 # OMX
 PRODUCT_PACKAGES += \
     libdashplayer \
@@ -196,6 +194,10 @@ PRODUCT_PACKAGES += \
     com.android.future.usb.accessory
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.isUsbOtgEnabled=true
+
+# ART
+PRODUCT_PROPERTY_OVERRIDES += \
+    dalvik.vm.dex2oat-flags=--no-watch-dog
 
 # Wifi
 PRODUCT_PACKAGES += \
