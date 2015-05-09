@@ -26,7 +26,7 @@
 #
 on init
     write /sys/class/android_usb/android0/iSerial ${ro.serialno}
-    write /sys/class/android_usb/android0/f_rndis/manufacturer ${ro.product.manufacturer}
+    write /sys/class/android_usb/android0/f_rndis/manufacturer "Samsung"
     write /sys/class/android_usb/android0/f_rndis/vendorID 04E8
     write /sys/class/android_usb/android0/f_rndis/wceis 1
     chown system system /sys/class/android_usb/android0/terminal_version
@@ -34,7 +34,7 @@ on init
 
 on boot
     write /sys/class/android_usb/f_mass_storage/inquiry_string "Samsung"
-    write /sys/class/android_usb/android0/iManufacturer ${ro.product.manufacturer}
+    write /sys/class/android_usb/android0/iManufacturer "Samsung"
     write /sys/class/android_usb/android0/iProduct ${ro.product.model}
 
 # This should only be used during device bringup
