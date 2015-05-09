@@ -102,6 +102,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.enable_boot_charger_mode=1
+
 # Audio
 PRODUCT_PACKAGES += \
     audio.a2dp.default \
