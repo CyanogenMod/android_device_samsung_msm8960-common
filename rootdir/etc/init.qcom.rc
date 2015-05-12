@@ -786,12 +786,6 @@ service ds_fmc_appd /system/bin/ds_fmc_appd -p "rmnet0" -D
 on property:persist.data.ds_fmc_app.mode=1
     start ds_fmc_appd
 
-on property:bluetooth.hciattach=true
-    setprop bluetooth.status on
-
-on property:bluetooth.hciattach=false
-    setprop bluetooth.status off
-
 # virtual sdcard daemon running as media_rw (1023)
 service sdcard /system/bin/sdcard -u 1023 -g 1023 -l /data/media /mnt/shell/emulated
     class late_start
