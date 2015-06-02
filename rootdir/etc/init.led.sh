@@ -7,4 +7,3 @@ fi
 
 /system/bin/toolbox rm /data/RS*.log
 
-/system/bin/toolbox ln -s "/data/data/com.android.providers.telephony/shared_prefs/preferred-apn1.xml" "/data/data/com.android.providers.telephony/shared_prefs/preferred-apn.xml"

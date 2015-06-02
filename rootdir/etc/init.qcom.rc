@@ -217,6 +217,8 @@ on fs
 
     setprop ro.crypto.fuse_sdcard true
 
+    symlink /data/data/com.android.providers.telephony/shared_prefs/preferred-apn1.xml /data/data/com.android.providers.telephony/shared_prefs/preferred-apn.xml
+
 on post-fs
     chown system system /sys/block/mmcblk0/queue/scheduler
     chmod 0664 /sys/block/mmcblk0/queue/scheduler
