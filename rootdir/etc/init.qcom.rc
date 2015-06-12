@@ -557,10 +557,7 @@ service irsc_util /system/bin/irsc_util "/etc/sec_config"
 service rmt_storage /system/bin/rmt_storage
     class core
     user root
-    disabled
-
-on property:ro.boot.emmc=true
-    start rmt_storage
+    group system
 
 service bridgemgrd /system/bin/bridgemgrd
     class late_start
