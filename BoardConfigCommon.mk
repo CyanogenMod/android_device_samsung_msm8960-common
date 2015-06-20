@@ -77,9 +77,6 @@ TARGET_SPECIFIC_HEADER_PATH += device/samsung/msm8960-common/include
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
 
-# Logging
-TARGET_USES_LOGD := false
-
 # Power
 TARGET_POWERHAL_VARIANT := qcom
 
