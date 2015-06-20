@@ -71,7 +71,6 @@ on early-boot
     setrlimit 8 67108864 67108864
 
     setprop persist.sys.ssr.restart_level 3
-    write /sys/module/subsystem_restart/parameters/enable_ramdumps 0
 
     chown system graphics /sys/class/graphics/fb1/hpd
     chown system graphics /sys/class/graphics/fb1/vendor_name
@@ -134,7 +133,7 @@ on boot
     # Allow QMUX daemon to assign port open wait time
     chown radio radio /sys/devices/virtual/hsicctl/hsicctl0/modem_wait
 
-    # 4.3 requires this
+    # Ril needs to read commandline
     chmod 0644 /proc/cmdline
 
     #Remove SUID bit for iproute2 ip tool
@@ -190,10 +189,6 @@ on boot
     # connections on high-throughput links get dropped when
     # an ack packet comes out of order
     write /proc/sys/net/netfilter/nf_conntrack_tcp_be_liberal 1
-
-    # Flash storage isn't a good entropy source, and only causes locking
-    # overhead in the kernel. Turn it off.
-    write /sys/block/mmcblk0/queue/add_random 0
 
     write /sys/devices/i2c-3/3-0024/cyttsp_update_fw 1
     write /sys/devices/i2c-3/3-005b/update_fw 1
@@ -622,7 +617,7 @@ service p2p_supplicant /system/bin/wpa_supplicant \
     disabled
     oneshot
 
-service dhcpcd_wlan0 /system/bin/dhcpcd -aABDKL
+service dhcpcd_wlan0 /system/bin/dhcpcd -aABKL
     class main
     disabled
     oneshot
@@ -632,7 +627,7 @@ service dhcpcd_p2p /system/bin/dhcpcd -aABKL
     disabled
     oneshot
 
-service dhcpcd_eth0 /system/bin/dhcpcd -ABDKL
+service dhcpcd_eth0 /system/bin/dhcpcd -ABKL
     class main
     disabled
     oneshot
@@ -674,14 +669,6 @@ service dhcpcd_bt-pan /system/bin/dhcpcd -ABKLG
 service iprenew_bt-pan /system/bin/dhcpcd -n
     disabled
     oneshot
-
-on property:crypto.driver.load=1
-     insmod /system/lib/modules/qce.ko
-     insmod /system/lib/modules/qcedev.ko
-
-on property:crypto.driver.load=0
-     exec /system/bin/rmmod qcedev.ko
-     exec /system/bin/rmmod qce.ko
 
 on property:sys.boot_completed=1
     write /sys/block/mmcblk0/queue/scheduler row
