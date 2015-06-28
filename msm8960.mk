@@ -177,7 +177,8 @@ PRODUCT_PACKAGES += \
 
 # Thermal
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/thermald-8960.conf:system/etc/thermald-8960.conf
+    $(LOCAL_PATH)/configs/thermald-8960.conf:system/etc/thermald-8960.conf \
+    $(LOCAL_PATH)/configs/thermald-8960.conf:system/etc/thermald.conf
 
 # USB
 PRODUCT_PACKAGES += \
