@@ -26,6 +26,8 @@
 #include <hardware/hardware.h>
 #include <hardware/power.h>
 
+#define UNUSED __attribute__((unused))
+
 #define SCALING_GOVERNOR_PATH "/sys/devices/system/cpu/cpu0/cpufreq/scaling_governor"
 #define BOOSTPULSE_INTERACTIVE "/sys/devices/system/cpu/cpufreq/interactive/boostpulse"
 #define NOTIFY_ON_MIGRATE "/dev/cpuctl/cpu.notify_on_migrate"
@@ -105,7 +107,7 @@ static int get_scaling_governor() {
     return 0;
 }
 
-static void cm_power_set_interactive(__attribute__((unused)) struct power_module *module, int on)
+static void cm_power_set_interactive(UNUSED struct power_module *module, UNUSED int on)
 {
     //sysfs_write(NOTIFY_ON_MIGRATE, on ? "1" : "0");
 }
@@ -208,7 +210,7 @@ static void cm_power_hint(struct power_module *module, power_hint_t hint,
     }
 }
 
-static void cm_power_init(__attribute__((unused)) struct power_module *module)
+static void cm_power_init(UNUSED struct power_module *module)
 {
     get_scaling_governor();
     configure_governor();
