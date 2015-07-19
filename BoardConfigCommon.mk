@@ -125,7 +125,6 @@ BOARD_SEPOLICY_UNION += \
     sysinit.te \
     system_app.te \
     system_server.te \
-    thermal-engine.te \
     ueventd.te \
     vold.te \
     wpa.te
