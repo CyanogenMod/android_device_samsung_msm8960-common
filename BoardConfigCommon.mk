@@ -137,4 +137,3 @@ TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/
 
 # Build our own PowerHAL
 TARGET_POWERHAL_VARIANT :=
-TARGET_POWERHAL_SET_INTERACTIVE_EXT := device/samsung/msm8960-common/power/power_ext.c
