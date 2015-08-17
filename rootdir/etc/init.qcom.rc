@@ -691,7 +691,6 @@ on property:sys.boot_completed=1
     write /sys/devices/system/cpu/cpufreq/interactive/io_is_busy 1
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 384000
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq 384000
-    write /sys/devices/system/cpu/sched_mc_power_savings 2
     chown root system /sys/devices/system/cpu/mfreq
     chmod 220 /sys/devices/system/cpu/mfreq
     chown system system /sys/devices/system/cpu/cpu1/online
@@ -806,7 +805,6 @@ on property:sys.perf.profile=0
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor conservative
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor conservative
     write /sys/class/kgsl/kgsl-3d0/pwrscale/trustzone/governor ondemand
-    write /sys/devices/system/cpu/sched_mc_power_savings 2
     start mpdecision
 
 # Balanced
@@ -817,7 +815,6 @@ on property:sys.perf.profile=1
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor interactive
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor interactive
     write /sys/class/kgsl/kgsl-3d0/pwrscale/trustzone/governor ondemand
-    write /sys/devices/system/cpu/sched_mc_power_savings 2
     start mpdecision
 
 # High performance
@@ -828,7 +825,6 @@ on property:sys.perf.profile=2
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor performance
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor performance
     write /sys/class/kgsl/kgsl-3d0/pwrscale/trustzone/governor performance
-    write /sys/devices/system/cpu/sched_mc_power_savings 0
 
 on charger
     mount_all fstab.qcom
