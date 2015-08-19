@@ -191,16 +191,16 @@ char * camera_fixup_setparams(struct camera_device * device, const char * settin
     if (id == 1) {
         int camMode;
         const char KEY_SAMSUNG_CAMERA_MODE[] = "cam_mode";
-        if (params.get(CameraParameters::KEY_SAMSUNG_CAMERA_MODE)) {
-            camMode = params.getInt(CameraParameters::KEY_SAMSUNG_CAMERA_MODE);
+        if (params.get(KEY_SAMSUNG_CAMERA_MODE)) {
+            camMode = params.getInt(KEY_SAMSUNG_CAMERA_MODE);
         } else {
             camMode = -1;
         }
 
         if (camMode == -1) {
-            params.set(CameraParameters::KEY_SAMSUNG_CAMERA_MODE, "1");
+            params.set(KEY_SAMSUNG_CAMERA_MODE, "1");
         } else {
-            params.set(CameraParameters::KEY_SAMSUNG_CAMERA_MODE, isVideo ? "1" : "0");
+            params.set(KEY_SAMSUNG_CAMERA_MODE, isVideo ? "1" : "0");
         }
     }
 #endif
