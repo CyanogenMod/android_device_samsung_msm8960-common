@@ -143,15 +143,11 @@ static char * camera_fixup_getparams(int id, const char * settings)
     return ret;
 }
 
-static bool wasVideo = false;
-
 char * camera_fixup_setparams(struct camera_device * device, const char * settings)
 {
     int id = CAMERA_ID(device);
     android::CameraParameters params;
     params.unflatten(android::String8(settings));
-    const char KEY_SAMSUNG_CAMERA_MODE[] = "cam_mode";
-    const char* camMode = params.get(KEY_SAMSUNG_CAMERA_MODE);
 
     bool enableZSL = !strcmp(params.get(android::CameraParameters::KEY_ZSL), "on");
 
@@ -192,25 +188,20 @@ char * camera_fixup_setparams(struct camera_device * device, const char * settin
 #endif
 
 #ifdef SAMSUNG_CAMERA_MODE
-    /* Samsung camcorder mode */
     if (id == 1) {
-    /* Enable for front camera only */
-        if (!(!strcmp(camMode, "1") && !isVideo) || wasVideo) {
-        /* Enable only if not already set (Snapchat) but do enable if the setting is left
-        over while switching from stills to video */
-            if ((!strcmp(params.get(android::CameraParameters::KEY_PREVIEW_FRAME_RATE), "15") ||
-               (!strcmp(params.get(android::CameraParameters::KEY_PREVIEW_SIZE), "320x240") &&
-               !strcmp(params.get(android::CameraParameters::KEY_JPEG_QUALITY), "96"))) && !isVideo) {
-                /* Do not set for video chat in Hangouts (Frame rate 15) or Skype (Preview size 320x240
-                and jpeg quality 96 */
-            } else {
-            /* "Normal case". Required to prevent distorted video and reboots while taking snaps */
-            params.set(KEY_SAMSUNG_CAMERA_MODE, isVideo ? "1" : "0");
-            }
-            wasVideo = (isVideo || wasVideo);
+        int camMode;
+        const char KEY_SAMSUNG_CAMERA_MODE[] = "cam_mode";
+        if (params.get(CameraParameters::KEY_SAMSUNG_CAMERA_MODE)) {
+            camMode = params.getInt(CameraParameters::KEY_SAMSUNG_CAMERA_MODE);
+        } else {
+            camMode = -1;
         }
-    } else {
-    wasVideo = false;
+
+        if (camMode == -1) {
+            params.set(CameraParameters::KEY_SAMSUNG_CAMERA_MODE, "1");
+        } else {
+            params.set(CameraParameters::KEY_SAMSUNG_CAMERA_MODE, isVideo ? "1" : "0");
+        }
     }
 #endif
 #ifdef ENABLE_ZSL
@@ -574,7 +565,6 @@ int camera_device_open(const hw_module_t* module, const char* name,
     int cameraid;
     wrapper_camera_device_t* camera_device = NULL;
     camera_device_ops_t* camera_ops = NULL;
-    wasVideo = false;
 
     android::Mutex::Autolock lock(gCameraWrapperLock);
 
