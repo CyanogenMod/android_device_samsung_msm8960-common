@@ -197,6 +197,10 @@ on boot
     # enable pulsing led on boot
     write /sys/class/sec/led/led_pattern 6
 
+    # Adaptive LMK
+    write /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk 1
+    write /sys/module/lowmemorykiller/parameters/vmpressure_file_min 53059
+
 on fs
     mount_all fstab.qcom
 
