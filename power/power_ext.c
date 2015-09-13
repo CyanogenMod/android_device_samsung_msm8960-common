@@ -24,6 +24,8 @@
 #define GO_HISPEED_LOAD_PATH "/sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load"
 #define OFF_HIGHSPEED_LOAD 110
 
+#define CPU1_ONLINE "/sys/devices/system/cpu/cpu1/online"
+
 static int go_hispeed_load = 0;
 static int off_hispeed_load = OFF_HIGHSPEED_LOAD;
 
@@ -84,6 +86,10 @@ static int sysfs_write(char *path, char *s)
 
 void cm_power_set_interactive_ext(int on)
 {
+    if (on) {
+        sysfs_write(CPU1_ONLINE, "1");
+    }
+
     char tmp_str[NODE_MAX];
     int tmp;
 
