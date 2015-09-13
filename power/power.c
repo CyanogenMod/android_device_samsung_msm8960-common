@@ -181,6 +181,7 @@ static void cm_power_hint(struct power_module *module, power_hint_t hint,
 #ifndef NO_TOUCH_BOOST
     case POWER_HINT_INTERACTION:
 #endif
+    case POWER_HINT_LAUNCH_BOOST:
     case POWER_HINT_CPU_BOOST:
         if (boostpulse_open(cm) >= 0) {
             if (data != NULL)
