@@ -130,7 +130,7 @@ static void configure_governor()
         sysfs_write("/sys/devices/system/cpu/cpufreq/ondemand/sampling_rate", "50000");
 
     } else if (strncmp(governor, "interactive", 11) == 0) {
-        sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/min_sample_time", "90000");
+        sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/min_sample_time", "40000");
         sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/hispeed_freq", "918000");
         sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay", "30000");
         sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load", "90");
