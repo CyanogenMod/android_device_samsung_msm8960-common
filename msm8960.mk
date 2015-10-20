@@ -120,6 +120,10 @@ PRODUCT_PACKAGES += \
     audio.usb.default \
     libaudio-resampler
 
+# Boringssl-compat
+PRODUCT_PACKAGES += \
+    libboringssl-compat
+
 # Camera Wrapper
 PRODUCT_PACKAGES += \
     camera.msm8960
