@@ -10,5 +10,9 @@
   {
     "repository": "android_kernel_samsung_d2",
     "target_path": "kernel/samsung/d2"
+  },
+  {
+    "repository": "android_external_stlport",
+    "target_path": "external/stlport"
   }
 ]
