@@ -3,3 +3,4 @@ allow mediaserver camera_socket:sock_file write;
 allow mediaserver mnt_user_file:dir search;
 allow mediaserver storage_file:dir search;
 allow mediaserver storage_file:lnk_file read;
+allow mediaserver system_file:file execmod;
