@@ -4,10 +4,6 @@
     "target_path": "device/samsung/qcom-common"
   },
   {
-    "repository": "android_external_sony_boringssl-compat",
-    "target_path": "external/sony/boringssl-compat"
-  },
-  {
     "repository": "android_kernel_samsung_d2",
     "target_path": "kernel/samsung/d2"
   },
