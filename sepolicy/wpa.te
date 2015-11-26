@@ -2,5 +2,7 @@ allow wpa efs_file:dir search;
 allow wpa wifi_efs_file:file r_file_perms;
 
 type_transition wpa system_data_file:file wifi_data_file;
+
+allow wpa rfkill_device:chr_file rw_file_perms;
 allow wpa system_data_file:dir { search add_name write };
 allow wpa wifi_data_file:file { open write };
