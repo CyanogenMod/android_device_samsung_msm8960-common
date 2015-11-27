@@ -34,12 +34,9 @@ etc/firmware/a225p5_pm4.fw
 etc/firmware/vidc_1080p.fw
 
 # Media
-lib/libdivxdrm.so
 lib/libdivxdrmdecrypt.so
 lib/libI420colorconvert.so
 lib/libmm-color-convertor.so
-lib/libmmparser.so
-lib/libmmosal.so
 lib/libwvm.so
 
 # Sensors
