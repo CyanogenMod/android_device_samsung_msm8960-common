@@ -197,10 +197,6 @@ on fs
     chmod 0775 /dev/block/platform/msm_sdcc.1/by-name
 
 on post-fs
-    chown system system /sys/block/mmcblk0/queue/scheduler
-    chmod 0664 /sys/block/mmcblk0/queue/scheduler
-    chown system system /sys/block/mmcblk1/queue/scheduler
-    chmod 0664 /sys/block/mmcblk1/queue/scheduler
 
     # for controlling write performance boosting
     chown system radio /sys/block/mmcblk0/bkops_en
