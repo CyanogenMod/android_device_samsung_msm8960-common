@@ -5,5 +5,6 @@ allow mm-qcamerad audio_device:dir search;
 allow mm-qcamerad camera_socket:sock_file { create unlink write };
 allow mm-qcamerad graphics_device:chr_file rw_file_perms;
 allow mm-qcamerad system_data_file:dir { add_name remove_name write };
+allow mm-qcamerad radio_data_file:file rw_file_perms;
 #FIXME allow mm-qcamerad system_file:dir write;
 allow mm-qcamerad system_file:file execmod;

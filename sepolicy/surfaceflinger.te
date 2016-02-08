@@ -1,1 +1,4 @@
 allow surfaceflinger audio_device:chr_file rw_file_perms;
+allow surfaceflinger shell_data_file:dir search;
+allow surfaceflinger shell_data_file:file { open getattr read };
+allow surfaceflinger sysfs:file rw_file_perms;
