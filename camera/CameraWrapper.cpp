@@ -369,6 +369,7 @@ static int camera_set_parameters(struct camera_device *device,
 #ifdef DERP2
     bool isVideo = false;
     bool isZsl = false;
+    int camMode = -1;
 
     if (params.get(CameraParameters::KEY_RECORDING_HINT))
         isVideo = !strcmp(params.get(CameraParameters::KEY_RECORDING_HINT), "true");
@@ -377,11 +378,9 @@ static int camera_set_parameters(struct camera_device *device,
         isZsl = !strcmp(params.get(CameraParameters::KEY_ZSL), "on");
 
     if (id == FRONT_CAMERA_ID || isZsl) {
-        int camMode;
+
         if (params.get(CameraParameters::KEY_SAMSUNG_CAMERA_MODE)) {
             camMode = params.getInt(CameraParameters::KEY_SAMSUNG_CAMERA_MODE);
-        } else {
-            camMode = -1;
         }
 
         if (camMode == -1) {
