@@ -10,3 +10,6 @@ allow system_server power_dev:file rw_file_perms;
 allow system_server timerirq_dev:chr_file rw_file_perms;
 allow system_server wifi_efs_file:file rw_file_perms;
 allow system_server persist_file:dir search;
+allow system_server persist_file:file rw_file_perms;
+allow system_server persist_data_file:dir search;
+allow system_server persist_data_file:file rw_file_perms;
