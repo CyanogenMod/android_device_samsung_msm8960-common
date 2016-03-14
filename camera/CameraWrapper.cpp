@@ -32,7 +32,7 @@
 #include <hardware/hardware.h>
 #include <hardware/camera.h>
 #include <camera/Camera.h>
-#include <camera/CameraParameters2.h>
+#include <camera/CameraParameters.h>
 #include <dlfcn.h>
 
 #define BACK_CAMERA_ID 0
@@ -347,7 +347,7 @@ static int camera_set_parameters(struct camera_device *device,
     __android_log_write(ANDROID_LOG_VERBOSE, LOG_TAG, settings);
 #endif
 
-    CameraParameters2 params;
+    CameraParameters params;
     params.unflatten(String8(settings));
 
     // fix params here
@@ -439,7 +439,7 @@ static char *camera_get_parameters(struct camera_device *device)
 
     wrapper_camera_device_t *wrapper = (wrapper_camera_device_t *)device;
 
-    CameraParameters2 params;
+    CameraParameters params;
     params.unflatten(String8(parameters));
 
     // fix params here
