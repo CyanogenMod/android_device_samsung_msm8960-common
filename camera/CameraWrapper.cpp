@@ -460,13 +460,8 @@ static char *camera_get_parameters(struct camera_device *device)
 
     params.set(CameraParameters::KEY_MAX_NUM_DETECTED_FACES_HW, "0");
     params.set(CameraParameters::KEY_MAX_NUM_DETECTED_FACES_SW, "0");
-    params.remove(android::CameraParameters::KEY_QC_FACE_RECOGNITION);
-    params.remove(android::CameraParameters::KEY_QC_SUPPORTED_FACE_RECOGNITION);
-    params.remove(android::CameraParameters::KEY_QC_SUPPORTED_FACE_RECOGNITION_MODES);
-    params.remove(android::CameraParameters::KEY_QC_FACE_DETECTION);
-    params.remove(android::CameraParameters::KEY_QC_SUPPORTED_FACE_DETECTION);
-    params.remove(android::CameraParameters::KEY_FACE_DETECTION);
-    params.remove(android::CameraParameters::KEY_SUPPORTED_FACE_DETECTION);
+    params.set(CameraParameters::KEY_FACE_DETECTION, "off");
+    params.set(CameraParameters::KEY_SUPPORTED_FACE_DETECTION, "off");
 
     char *ret = strdup(params.flatten().string());
     VENDOR_CALL(device, put_parameters, parameters);
