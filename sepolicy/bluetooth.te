@@ -1,4 +1,6 @@
 allow bluetooth proc_bthc:dir search;
 allow bluetooth proc_bthc:file { open read write };
 
+allow bluetooth bluetooth_persist_file:file { read open };
+
 allow bluetooth wifi_data_file:file { r_file_perms };
