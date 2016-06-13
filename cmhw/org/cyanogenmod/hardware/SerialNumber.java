@@ -17,7 +17,7 @@
 package org.cyanogenmod.hardware;
 
 import android.os.SystemProperties;
-import org.cyanogenmod.hardware.util.FileUtils;
+import org.cyanogenmod.internal.util.FileUtils;
 
 /**
  * Support for displaying a different serial number in Settings -> About Phone
@@ -34,7 +34,7 @@ public class SerialNumber {
      * @return boolean Supported devices must return always true
      */
     public static boolean isSupported() {
-        return true;
+        return FileUtils.isFileReadable(FILE_PATH);
     }
 
     /**
