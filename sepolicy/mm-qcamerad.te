@@ -4,7 +4,7 @@ type_transition mm-qcamerad system_data_file:sock_file camera_socket "cam_socket
 allow mm-qcamerad camera_socket:sock_file { create unlink write };
 
 type_transition mm-qcamerad system_data_file:file radio_data_file;
-allow mm-qcamerad radio_data_file:file rw_file_perms;
+allow mm-qcamerad radio_data_file:file create_file_perms;
 
 allow mm-qcamerad audio_device:chr_file rw_file_perms;
 allow mm-qcamerad audio_device:dir search;
