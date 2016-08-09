@@ -23,6 +23,7 @@ vendor/lib/libgsl.so
 vendor/lib/libOpenCL.so
 vendor/lib/libOpenVG.so
 vendor/lib/libsc-a2xx.so
+vendor/lib/libuiblur.so
 
 # GPU firmware
 etc/firmware/a225p5_pm4.fw
