@@ -64,7 +64,7 @@ TARGET_NO_ADAPTIVE_PLAYBACK := true
 TARGET_NO_INITLOGO := true
 
 # Use dlmalloc instead of jemalloc for mallocs
-MALLOC_IMPL := dlmalloc
+MALLOC_SVELTE := true
 
 # Fonts
 EXTENDED_FONT_FOOTPRINT := true
