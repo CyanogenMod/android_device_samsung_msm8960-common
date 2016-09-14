@@ -10,5 +10,3 @@ allow mm-qcamerad audio_device:chr_file rw_file_perms;
 allow mm-qcamerad audio_device:dir search;
 
 allow mm-qcamerad graphics_device:chr_file rw_file_perms;
-
-allow mm-qcamerad system_file:file execmod;

@@ -5,4 +5,3 @@ allow mediaserver mnt_user_file:file rw_file_perms;
 allow mediaserver mnt_user_file:lnk_file read;
 allow mediaserver storage_file:dir search;
 allow mediaserver storage_file:lnk_file read;
-allow mediaserver system_file:file execmod;
