@@ -59,7 +59,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.composition.type=dyn \
     ro.opengles.version=131072 \
-    camera2.portability.force_api=1
+    camera2.portability.force_api=1 \
+    media.stagefright.legacyencoder=true \
+    media.stagefright.less-secure=true
 
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.data_netmgrd_nint=16 \
