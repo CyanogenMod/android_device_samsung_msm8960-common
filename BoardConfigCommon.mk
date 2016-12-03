@@ -72,9 +72,6 @@ EXTENDED_FONT_FOOTPRINT := true
 # Includes
 TARGET_SPECIFIC_HEADER_PATH += device/samsung/msm8960-common/include
 
-# Lights
-TARGET_PROVIDES_LIBLIGHT := true
-
 # Build our own PowerHAL
 TARGET_POWERHAL_VARIANT :=
 
